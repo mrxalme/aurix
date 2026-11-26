@@ -1,0 +1,2501 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURIX™ — Built To Be Different | Streetwear & Custom Tees</title>
+  <meta
+    name="description"
+    content="AURIX™ is an independent Indian streetwear label offering original graphic designs and custom-printed standard-fit T-shirts. Built to be different."
+  />
+  <meta property="og:title" content="AURIX™ — Built To Be Different" />
+  <meta
+    property="og:description"
+    content="Original designs. Custom prints. Nothing ordinary. Standard-fit streetwear T-shirts from AURIX™."
+  />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="images/Logo black.png" />
+
+  <!-- Google Fonts: Space Grotesk (Headings) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Space Grotesk"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            body: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          colors: {
+            ivory: '#F5F0E8',
+            beige: '#E7DCCD',
+            taupe: '#B6AA9B',
+            charcoal: '#252321',
+            obsidian: '#0A0A0A',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Editorial typography, navigation underline motion, and utility helpers */
+    body {
+      background-color: #F5F0E8;
+      color: #0A0A0A;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-heading {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background-color: currentColor;
+      transition: width 260ms ease;
+    }
+    .nav-link:hover::after,
+    .nav-link-active::after {
+      width: 100%;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F5F0E8] text-[#0A0A0A] font-body antialiased selection:bg-[#0A0A0A] selection:text-[#F5F0E8] overflow-x-hidden">
+
+  <!-- A. SLIM ANNOUNCEMENT BAR -->
+  <div class="bg-[#0A0A0A] text-[#F5F0E8] text-[10px] sm:text-[11px] font-heading tracking-[0.26em] uppercase text-center py-2.5 px-4 border-b border-white/10 relative z-40">
+    BUILT TO BE DIFFERENT. MADE FOR YOU.
+  </div>
+
+  <!-- B. STICKY NAVIGATION HEADER -->
+  <header id="site-header" class="sticky top-0 z-30 transition-all duration-300 bg-transparent text-[#F5F0E8] -mb-[72px]">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-[72px] flex items-center justify-between gap-4">
+      <!-- Left: Mobile Menu Button + Logo -->
+      <div class="flex items-center gap-3">
+        <button
+          type="button"
+          onclick="openMobileMenu()"
+          class="lg:hidden p-2 -ml-2 hover:opacity-70 transition-opacity"
+          aria-label="Open navigation menu"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+
+        <button
+          type="button"
+          onclick="navigateTo('home')"
+          class="flex items-center focus:outline-none"
+          aria-label="AURIX Home"
+          id="header-logo-container"
+        >
+          <!-- Dynamically swapped between light & dark transparent PNG logos -->
+        </button>
+      </div>
+
+      <!-- Center: Minimal Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-9 text-xs font-heading font-medium tracking-[0.2em] uppercase" aria-label="Primary Navigation" id="desktop-nav">
+        <button type="button" data-nav="shop" onclick="navigateTo('shop', { category: 'All' })" class="nav-link py-1 transition-opacity">Shop</button>
+        <button type="button" data-nav="originals" onclick="navigateTo('originals')" class="nav-link py-1 transition-opacity">Originals</button>
+        <button type="button" data-nav="custom" onclick="navigateTo('custom')" class="nav-link py-1 transition-opacity">Custom Prints</button>
+        <button type="button" data-nav="about" onclick="navigateTo('about')" class="nav-link py-1 transition-opacity">Our Story</button>
+      </nav>
+
+      <!-- Right: Search & Cart -->
+      <div class="flex items-center gap-2 sm:gap-4">
+        <button
+          type="button"
+          onclick="openSearch()"
+          class="p-2 hover:opacity-70 transition-opacity"
+          aria-label="Search products"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+
+        <button
+          type="button"
+          onclick="openCartDrawer()"
+          class="relative p-2 hover:opacity-70 transition-opacity flex items-center gap-1.5"
+          aria-label="Open shopping cart"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span id="header-cart-badge" class="hidden text-[10px] font-heading font-bold min-w-[18px] h-[18px] px-1 items-center justify-center rounded-full bg-[#0A0A0A] text-[#F5F0E8]">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PAGE VIEWPORT -->
+  <main id="app-main"></main>
+
+  <!-- L. FOOTER -->
+  <footer class="bg-[#0A0A0A] text-[#F5F0E8] border-t border-white/10">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-16 md:py-20">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-white/15">
+        <!-- Brand Column -->
+        <div class="md:col-span-5 space-y-6">
+          <button type="button" onclick="navigateTo('home')" class="block text-left">
+            <img
+              src="images/Logo with name white.png"
+              alt="AURIX — Built to Be Different"
+              class="h-20 sm:h-24 w-auto object-contain select-none"
+              onerror="this.outerHTML='<span class=\'font-heading text-2xl font-bold tracking-[0.22em] uppercase text-[#F5F0E8]\'>AURIX™</span>'"
+            />
+          </button>
+          <p class="text-sm text-[#E7DCCD]/75 max-w-sm leading-relaxed">
+            Not made to blend in. Made to stand apart. Independent Indian streetwear crafted around original designs and custom-printed standard-fit T-shirts.
+          </p>
+          <div class="pt-1">
+            <a
+              href="https://www.instagram.com/aurix.officialss/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-xs font-heading tracking-[0.2em] uppercase text-[#F5F0E8] border-b border-[#F5F0E8]/40 pb-1 hover:border-[#F5F0E8] transition-colors"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              DM us on Instagram (@aurix.officialss)
+            </a>
+          </div>
+        </div>
+
+        <!-- Explore Column -->
+        <div class="md:col-span-3 space-y-4">
+          <h4 class="font-heading text-xs tracking-[0.22em] uppercase text-[#B6AA9B]">Explore</h4>
+          <ul class="space-y-3 text-sm text-[#F5F0E8]/85">
+            <li><button type="button" onclick="navigateTo('shop', { category: 'All' })" class="hover:text-white hover:translate-x-1 transition-all inline-block">Shop All</button></li>
+            <li><button type="button" onclick="navigateTo('originals')" class="hover:text-white hover:translate-x-1 transition-all inline-block">AURIX Originals</button></li>
+            <li><button type="button" onclick="navigateTo('custom')" class="hover:text-white hover:translate-x-1 transition-all inline-block">Custom Prints</button></li>
+            <li><button type="button" onclick="navigateTo('about')" class="hover:text-white hover:translate-x-1 transition-all inline-block">Our Story</button></li>
+          </ul>
+        </div>
+
+        <!-- Information Column -->
+        <div class="md:col-span-4 space-y-4">
+          <h4 class="font-heading text-xs tracking-[0.22em] uppercase text-[#B6AA9B]">Information</h4>
+          <ul class="space-y-3 text-sm text-[#F5F0E8]/85">
+            <li><button type="button" onclick="navigateTo('faqs')" class="hover:text-white hover:translate-x-1 transition-all inline-block">FAQs</button></li>
+            <li><button type="button" onclick="navigateTo('shipping')" class="hover:text-white hover:translate-x-1 transition-all inline-block">Shipping &amp; Returns</button></li>
+            <li><button type="button" onclick="navigateTo('privacy')" class="hover:text-white hover:translate-x-1 transition-all inline-block">Privacy Policy</button></li>
+            <li><button type="button" onclick="navigateTo('terms')" class="hover:text-white hover:translate-x-1 transition-all inline-block">Terms &amp; Conditions</button></li>
+          </ul>
+          <div class="pt-4 text-xs text-[#B6AA9B] space-y-1">
+            <p>Instagram: @aurix.officialss</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#B6AA9B]">
+        <p>© <span id="footer-year"></span> AURIX. All rights reserved.</p>
+        <p class="font-heading tracking-[0.24em] uppercase text-[#E7DCCD]/80">BUILT TO BE DIFFERENT.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================== -->
+  <!-- OVERLAYS: MOBILE MENU, SEARCH, CART DRAWER, SIZE GUIDE, TOAST          -->
+  <!-- ====================================================================== -->
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 z-50 hidden lg:hidden">
+    <div class="fixed inset-0 bg-[#0A0A0A]/60 backdrop-blur-sm" onclick="closeMobileMenu()"></div>
+    <div class="relative w-[84%] max-w-sm bg-[#F5F0E8] text-[#0A0A0A] h-full flex flex-col justify-between p-6 shadow-2xl border-r border-[#B6AA9B]/40">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-[#B6AA9B]/40">
+          <div class="flex items-center gap-2">
+            <img src="images/Logo black.png" alt="AURIX Emblem" class="h-8 w-8 object-contain" onerror="this.style.display='none'" />
+            <span class="font-heading font-bold tracking-[0.22em] text-lg">AURIX™</span>
+          </div>
+          <button type="button" onclick="closeMobileMenu()" class="p-2" aria-label="Close menu">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+
+        <div class="py-6 flex flex-col gap-5">
+          <button type="button" onclick="navigateTo('home')" class="text-left font-heading text-2xl font-semibold tracking-tight uppercase flex items-center justify-between"><span>Home</span><span class="opacity-40">→</span></button>
+          <button type="button" onclick="navigateTo('shop', { category: 'All' })" class="text-left font-heading text-2xl font-semibold tracking-tight uppercase flex items-center justify-between"><span>Shop All</span><span class="opacity-40">→</span></button>
+          <button type="button" onclick="navigateTo('originals')" class="text-left font-heading text-2xl font-semibold tracking-tight uppercase flex items-center justify-between"><span>AURIX Originals</span><span class="opacity-40">→</span></button>
+          <button type="button" onclick="navigateTo('custom')" class="text-left font-heading text-2xl font-semibold tracking-tight uppercase flex items-center justify-between"><span>Custom Prints</span><span class="opacity-40">→</span></button>
+          <button type="button" onclick="navigateTo('about')" class="text-left font-heading text-2xl font-semibold tracking-tight uppercase flex items-center justify-between"><span>Our Story</span><span class="opacity-40">→</span></button>
+          <button type="button" onclick="navigateTo('faqs')" class="text-left font-heading text-2xl font-semibold tracking-tight uppercase flex items-center justify-between"><span>FAQs</span><span class="opacity-40">→</span></button>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-[#B6AA9B]/40 space-y-3">
+        <p class="text-[11px] font-heading tracking-[0.2em] uppercase text-[#252321]/70">BUILT TO BE DIFFERENT.</p>
+        <a
+          href="https://www.instagram.com/aurix.officialss/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-xs font-medium text-[#0A0A0A] underline underline-offset-4"
+        >
+          DM us on Instagram (@aurix.officialss)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Overlay -->
+  <div id="search-overlay" class="fixed inset-0 z-50 hidden bg-[#0A0A0A]/65 backdrop-blur-sm items-start justify-center pt-16 sm:pt-24 px-4" onclick="closeSearch()">
+    <div class="bg-[#F5F0E8] w-full max-w-2xl border border-[#B6AA9B] shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+      <div class="flex items-center gap-3 px-5 py-4 border-b border-[#B6AA9B]/50">
+        <svg class="w-5 h-5 text-[#252321]/70 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input
+          id="global-search-input"
+          type="text"
+          oninput="renderSearchResults(this.value)"
+          placeholder="Search AURIX Originals, No Context, Offline, Unfiltered..."
+          class="w-full bg-transparent text-sm sm:text-base text-[#0A0A0A] placeholder:text-[#252321]/50 focus:outline-none"
+        />
+        <button type="button" onclick="closeSearch()" class="p-1.5 hover:bg-[#E7DCCD] transition-colors" aria-label="Close search">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div id="search-results-container" class="p-5 max-h-[65vh] overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 z-50 hidden justify-end">
+    <div class="fixed inset-0 bg-[#0A0A0A]/60 backdrop-blur-sm" onclick="closeCartDrawer()"></div>
+    <aside class="relative w-full max-w-md bg-[#F5F0E8] text-[#0A0A0A] h-full flex flex-col shadow-2xl border-l border-[#B6AA9B]/50" aria-label="Shopping Cart">
+      <div class="flex items-center justify-between px-6 py-5 border-b border-[#B6AA9B]/50">
+        <div>
+          <h2 id="cart-drawer-title" class="font-heading text-lg font-bold tracking-[0.16em] uppercase">Your Cart (0)</h2>
+          <p class="text-[11px] text-[#252321]/70 mt-0.5">Standard-Fit AURIX™ Apparel</p>
+        </div>
+        <button type="button" onclick="closeCartDrawer()" class="p-2 hover:bg-[#E7DCCD] transition-colors" aria-label="Close cart">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div id="cart-drawer-body" class="flex-1 overflow-y-auto px-6 py-5 space-y-5"></div>
+      <div id="cart-drawer-footer"></div>
+    </aside>
+  </div>
+
+  <!-- Size Guide Modal -->
+  <div id="size-guide-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-[#0A0A0A]/70 backdrop-blur-sm p-4" role="dialog" aria-modal="true" onclick="closeSizeGuide()">
+    <div class="bg-[#F5F0E8] text-[#0A0A0A] w-full max-w-lg border border-[#B6AA9B] shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between px-6 py-5 border-b border-[#B6AA9B]/50">
+        <div>
+          <p class="text-[11px] tracking-[0.22em] uppercase text-[#252321]/70">AURIX™ FIT REFERENCE</p>
+          <h3 class="font-heading text-xl font-bold tracking-tight uppercase mt-0.5">Standard-Fit Size Guide</h3>
+        </div>
+        <button type="button" onclick="closeSizeGuide()" class="p-2 text-[#252321] hover:text-[#0A0A0A] hover:bg-[#E7DCCD] transition-colors" aria-label="Close size guide">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="p-6 space-y-5">
+        <p class="text-sm text-[#252321]/85 leading-relaxed">
+          All launch pieces are cut in a clean, everyday <strong class="font-semibold text-[#0A0A0A]">standard fit</strong>. Measurements below are garment references in inches.
+        </p>
+        <div class="overflow-x-auto border border-[#B6AA9B]/60 bg-[#FFFFFF]">
+          <table class="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr class="bg-[#E7DCCD]/70 border-b border-[#B6AA9B]/60 text-[11px] uppercase tracking-[0.16em] text-[#252321]">
+                <th class="py-3 px-4 font-semibold">Size</th>
+                <th class="py-3 px-4 font-semibold">Chest (in)</th>
+                <th class="py-3 px-4 font-semibold">Length (in)</th>
+                <th class="py-3 px-4 font-semibold">Shoulder (in)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[#B6AA9B]/30"><td class="py-3 px-4 font-heading font-bold">S</td><td class="py-3 px-4">38"</td><td class="py-3 px-4">27"</td><td class="py-3 px-4">16.5"</td></tr>
+              <tr class="border-b border-[#B6AA9B]/30"><td class="py-3 px-4 font-heading font-bold">M</td><td class="py-3 px-4">40"</td><td class="py-3 px-4">28"</td><td class="py-3 px-4">17.5"</td></tr>
+              <tr class="border-b border-[#B6AA9B]/30"><td class="py-3 px-4 font-heading font-bold">L</td><td class="py-3 px-4">42"</td><td class="py-3 px-4">29"</td><td class="py-3 px-4">18.5"</td></tr>
+              <tr><td class="py-3 px-4 font-heading font-bold">XL</td><td class="py-3 px-4">44"</td><td class="py-3 px-4">30"</td><td class="py-3 px-4">19.5"</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bg-[#E7DCCD]/60 p-4 text-xs text-[#252321]/85 leading-relaxed">
+          <p class="font-semibold uppercase tracking-[0.14em] text-[#0A0A0A] mb-1">Fit Note</p>
+          <p>
+            Take your regular size for a clean standard fit, or size up by one for a slightly relaxed drape. Need sizing help? DM us on Instagram at
+            <a href="https://www.instagram.com/aurix.officialss/" target="_blank" rel="noopener noreferrer" class="underline font-medium text-[#0A0A0A]">@aurix.officialss</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast-bar" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden bg-[#0A0A0A] text-[#F5F0E8] px-5 py-3 text-xs font-heading tracking-[0.14em] uppercase shadow-xl border border-white/15 items-center gap-2.5">
+    <span class="text-[#E7DCCD]">✓</span>
+    <span id="toast-text"></span>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- APPLICATION DATA & INTERACTIVE STOREFRONT LOGIC                        -->
+  <!-- ====================================================================== -->
+  <script>
+    // ========================================================================
+    // 1. BRAND CONFIGURATION & PRODUCT CATALOG (EDITABLE)
+    // ========================================================================
+    const BRAND = {
+      name: 'AURIX™',
+      tagline: 'BUILT TO BE DIFFERENT.',
+      positioning: 'Not made to blend in. Made to stand apart.',
+      instagramHandle: '@aurix.officialss',
+      instagramUrl: 'https://www.instagram.com/aurix.officialss/',
+      currency: '₹',
+      deliveryFee: 99,
+      freeShippingThreshold: 1499,
+    };
+
+    // Relative paths so double-clicking index.html works seamlessly alongside the images/ folder
+    const LOGOS = {
+      emblemDark: 'images/Logo black.png',
+      emblemLight: 'images/Logo white.png',
+      fullDark: 'images/Logo with name black.png',
+      fullLight: 'images/Logo with name white.png',
+    };
+
+    const SIZES = ['S', 'M', 'L', 'XL'];
+    const COLORS = ['Black', 'White'];
+
+    const DROP_CATEGORIES = [
+      {
+        id: 'Core Branding',
+        title: 'CORE BRANDING',
+        subtitle: 'The foundational AURIX™ identity. Built to be different.',
+        editorialNote: 'Anchored by the orbital A emblem and signature wordmark. Standard-fit silhouettes engineered for everyday monochrome rotation.',
+      },
+      {
+        id: 'No Context',
+        title: 'NO CONTEXT',
+        subtitle: "You don't owe everyone an explanation.",
+        editorialNote: 'Minimal split-bar typography that draws a clean boundary. Sharp, direct, and unbothered.',
+      },
+      {
+        id: 'Offline',
+        title: 'OFFLINE',
+        subtitle: "Disconnect from the world's expectations.",
+        editorialNote: 'Designed for stepping out of the noise and moving on your own terms.',
+      },
+      {
+        id: 'Out Of Script',
+        title: 'OUT OF SCRIPT',
+        subtitle: 'Live beyond the usual.',
+        editorialNote: 'For those who refuse the predictable route. Clean editorial type set on crisp black and white canvases.',
+      },
+      {
+        id: 'The Silence',
+        title: 'THE SILENCE',
+        subtitle: 'Sometimes silence says everything.',
+        editorialNote: 'Quiet confidence rendered in restrained monochrome typography. Presence without the noise.',
+      },
+      {
+        id: 'Unfiltered',
+        title: 'UNFILTERED',
+        subtitle: 'Be unapologetically yourself.',
+        editorialNote: 'Raw self-expression with zero pretense. A direct statement for the unfiltered generation.',
+      },
+    ];
+
+    const PRODUCTS = [
+      {
+        id: 'aurix-signature-logo-tee',
+        name: 'AURIX Signature Logo Tee',
+        sku: 'ARX-CORE-001',
+        category: 'Core Branding',
+        price: 849,
+        tag: 'NEW',
+        available: true,
+        isNewest: 1,
+        fit: 'Standard Fit',
+        tagline: 'BUILT TO BE DIFFERENT.',
+        description: 'Our foundational standard-fit tee featuring the full center-chest AURIX™ orbital A emblem, wordmark, and tagline. Designed for clean everyday wear.',
+        designStory: 'The first piece in the AURIX™ archive. The orbital A represents momentum and standing outside the ordinary orbit—paired with crisp architectural typography.',
+        colors: ['Black', 'White'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        imagesByColor: {
+          Black: ['images/AURIX in Sunlit Concrete.png', 'images/Sunlit AURIX Editorial Portrait.png'],
+          White: ['images/AURIX Built to Be Different.png', 'images/AURIX Urban Concrete Portrait.png'],
+        },
+        defaultColor: 'Black',
+      },
+      {
+        id: 'aurix-minimal-emblem-tee',
+        name: 'AURIX Minimal Emblem Tee',
+        sku: 'ARX-CORE-002',
+        category: 'Core Branding',
+        price: 749,
+        tag: null,
+        available: true,
+        isNewest: 2,
+        fit: 'Standard Fit',
+        tagline: 'Subtle identity. Maximum clarity.',
+        description: 'A restrained standard-fit staple carrying the standalone AURIX™ orbital A emblem on the left chest. Clean, versatile, and intentionally minimal.',
+        designStory: 'Stripped down to the essential mark. Built for days when a single sharp symbol says enough.',
+        colors: ['Black', 'White'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        imagesByColor: {
+          Black: ['images/Moody Editorial Portrait in Black Tee.png', 'images/Urban Concrete Fashion Portrait.png'],
+          White: ['images/Sunlit Concrete Streetwear Portrait.png', 'images/Urban Concrete Fashion Portrait(1).png'],
+        },
+        defaultColor: 'Black',
+      },
+      {
+        id: 'no-context-tee',
+        name: 'NO CONTEXT Tee',
+        sku: 'ARX-ORIG-003',
+        category: 'No Context',
+        price: 849,
+        tag: 'NEW',
+        available: true,
+        isNewest: 3,
+        fit: 'Standard Fit',
+        tagline: "NO CONTEXT | You don't owe everyone an explanation.",
+        description: 'Standard-fit graphic tee featuring the signature split-bar typographic lockup: NO CONTEXT paired with a direct editorial sub-line.',
+        designStory: 'Inspired by the freedom of moving quietly without justifying every choice. Clean monochrome contrast designed to read effortlessly up close and from across the room.',
+        colors: ['Black', 'White'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        imagesByColor: {
+          Black: ['images/No Context-f2.png', 'images/No Context-m2.png'],
+          White: ['images/No Context-f1.png', 'images/No Context-m1.png'],
+        },
+        defaultColor: 'Black',
+      },
+      {
+        id: 'offline-tee',
+        name: 'OFFLINE Tee',
+        sku: 'ARX-ORIG-004',
+        category: 'Offline',
+        price: 849,
+        tag: 'NEW',
+        available: true,
+        isNewest: 4,
+        fit: 'Standard Fit',
+        tagline: "OFFLINE | Disconnect from the world's expectations.",
+        description: 'Standard-fit T-shirt featuring the OFFLINE typographic divider print. Crisp, balanced chest placement in high-contrast monochrome.',
+        designStory: 'A wearable reminder to step back from constant digital noise and external expectations. Built for clarity and focus.',
+        colors: ['Black', 'White'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        imagesByColor: {
+          Black: ['images/Offline-m2.png', 'images/Offline-f2.png'],
+          White: ['images/Offline-m1.png', 'images/Offline-f1.png'],
+        },
+        defaultColor: 'White',
+      },
+      {
+        id: 'out-of-script-tee',
+        name: 'OUT OF SCRIPT Tee',
+        sku: 'ARX-ORIG-005',
+        category: 'Out Of Script',
+        price: 849,
+        tag: null,
+        available: true,
+        isNewest: 5,
+        fit: 'Standard Fit',
+        tagline: 'OUT OF SCRIPT | Live beyond the usual.',
+        description: 'Standard-fit statement T-shirt from the AURIX™ Originals drop. Architectural sans-serif typography with a clean vertical rule.',
+        designStory: 'Created for thinkers and makers who write their own direction instead of following a preset template.',
+        colors: ['Black', 'White'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        imagesByColor: {
+          Black: ['images/Out of Script-m2.png', 'images/Out of Script-f2.png'],
+          White: ['images/Out of Script-m1.png', 'images/Out of Script-f1.png'],
+        },
+        defaultColor: 'Black',
+      },
+      {
+        id: 'the-silence-tee',
+        name: 'THE SILENCE Tee',
+        sku: 'ARX-ORIG-006',
+        category: 'The Silence',
+        price: 849,
+        tag: null,
+        available: true,
+        isNewest: 6,
+        fit: 'Standard Fit',
+        tagline: 'THE SILENCE | Sometimes silence says everything.',
+        description: 'Standard-fit T-shirt carrying THE SILENCE split-bar print. Designed with deliberate negative space and crisp typographic contrast.',
+        designStory: 'Not every statement needs volume. THE SILENCE celebrates composure, restraint, and understated presence.',
+        colors: ['Black', 'White'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        imagesByColor: {
+          Black: ['images/Silence-m2.png', 'images/Silent-f2.png'],
+          White: ['images/Silence-f1.png', 'images/Silence-m1.png'],
+        },
+        defaultColor: 'Black',
+      },
+      {
+        id: 'unfiltered-tee',
+        name: 'UNFILTERED Tee',
+        sku: 'ARX-ORIG-007',
+        category: 'Unfiltered',
+        price: 899,
+        tag: 'NEW',
+        available: true,
+        isNewest: 7,
+        fit: 'Standard Fit',
+        tagline: 'UNFILTERED | Be unapologetically yourself.',
+        description: 'Standard-fit graphic tee closing out the inaugural AURIX™ Originals capsule. Sharp horizontal lockup in monochrome ink.',
+        designStory: 'An ode to honesty and individuality. No persona, no editing—just who you are, worn openly.',
+        colors: ['Black', 'White'],
+        sizes: ['S', 'M', 'L', 'XL'],
+        imagesByColor: {
+          Black: ['images/Unfiltered-f2.png', 'images/Unfiltered-m2.png'],
+          White: ['images/Unfiltered-f1.png', 'images/Unfiltered-m1.png'],
+        },
+        defaultColor: 'Black',
+      },
+    ];
+
+    const LOOKBOOK_ITEMS = [
+      { src: 'images/AURIX in Sunlit Concrete.png', caption: '01 / CORE BRANDING — BLACK', productId: 'aurix-signature-logo-tee', span: 'md:col-span-5 md:row-span-2', aspect: 'aspect-[3/4]' },
+      { src: 'images/No Context-f1.png', caption: '02 / NO CONTEXT — WHITE', productId: 'no-context-tee', span: 'md:col-span-4', aspect: 'aspect-[4/5]' },
+      { src: 'images/Offline-m2.png', caption: '03 / OFFLINE — BLACK', productId: 'offline-tee', span: 'md:col-span-3', aspect: 'aspect-[3/4]' },
+      { src: 'images/Unfiltered-f2.png', caption: '04 / UNFILTERED — BLACK', productId: 'unfiltered-tee', span: 'md:col-span-3', aspect: 'aspect-[4/5]' },
+      { src: 'images/Out of Script-m1.png', caption: '05 / OUT OF SCRIPT — WHITE', productId: 'out-of-script-tee', span: 'md:col-span-4', aspect: 'aspect-[4/5]' },
+      { src: 'images/Silence-m2.png', caption: '06 / THE SILENCE — BLACK', productId: 'the-silence-tee', span: 'md:col-span-5', aspect: 'aspect-[16/11]' },
+    ];
+
+    const INSTAGRAM_TILES = [
+      { src: 'images/Sunlit AURIX Editorial Portrait.png', label: 'Core Branding' },
+      { src: 'images/No Context-m1.png', label: 'No Context' },
+      { src: 'images/Offline-f2.png', label: 'Offline' },
+      { src: 'images/Out of Script-f1.png', label: 'Out Of Script' },
+      { src: 'images/Silence-f1.png', label: 'The Silence' },
+      { src: 'images/Unfiltered-m2.png', label: 'Unfiltered' },
+    ];
+
+    const FAQ_ITEMS = [
+      { q: 'How do I order an AURIX T-shirt?', a: 'Browse our Shop or AURIX Originals pages, select your preferred color (Black or White) and standard-fit size (S, M, L, or XL), and add the piece to your cart. You can proceed to checkout directly from the cart drawer. If you need help with an order, DM us on Instagram at @aurix.officialss.' },
+      { q: 'How can I submit my custom design?', a: 'Visit the Custom Prints page and fill out the custom request form with your preferred T-shirt color, size, quantity, print placement, design description, and artwork file. Once reviewed, we will connect with you via Instagram (@aurix.officialss) with final pricing and confirmation before printing.' },
+      { q: 'What T-shirt sizes are available?', a: 'At launch, all AURIX Original and Custom Printed T-shirts are available exclusively in standard-fit silhouettes across sizes S, M, L, and XL. Check our interactive Size Guide on any product page or the Custom Prints page before ordering.' },
+      { q: 'Can I print my own image?', a: 'Yes. You can submit your own artwork, photography, graphics, typography, names, or quotes through our Custom Prints request form. High-resolution PNG, JPG, or vector files yield the cleanest print results.' },
+      { q: 'How do custom orders work?', a: 'Custom orders follow a simple 3-step process: (1) Submit your concept and file via the Custom Prints page, (2) Our team reviews printability, placement, and shares final pricing and confirmation with you before production begins, and (3) Once confirmed, we print and ship your custom tee.' },
+      { q: 'How long does production take?', a: '[Editable Placeholder — Production timeline to be finalized prior to full launch. Custom printed T-shirts require design review and dedicated print preparation before dispatch. DM @aurix.officialss for current turnaround estimates.]' },
+      { q: 'How long does delivery take?', a: '[Editable Placeholder — Standard pan-India shipping timelines will be updated once courier partners are finalized. Estimated transit times vary by city and PIN code. DM @aurix.officialss for specific delivery queries.]' },
+      { q: 'How do I care for my printed T-shirt?', a: 'To preserve print clarity and fabric feel: wash inside-out in cold water on a gentle cycle, use mild detergent, avoid bleach, do not tumble dry on high heat, and never iron directly over the printed graphic.' },
+      { q: 'Can I return a custom T-shirt?', a: '[Editable Placeholder — Because custom printed T-shirts are made specifically to your submitted artwork and specifications, they are generally non-returnable unless the item arrives damaged or with a verified printing defect. Final policy terms will be confirmed before launch.]' },
+      { q: 'How do I contact AURIX?', a: 'Instagram is currently our sole customer support and communication channel. Send us a direct message at @aurix.officialss and our team will assist you.' },
+    ];
+
+    // ========================================================================
+    // 2. APPLICATION STATE & PERSISTENCE
+    // ========================================================================
+    const state = {
+      page: 'home',
+      isScrolled: false,
+      homeTab: 'All',
+      shop: {
+        category: 'All',
+        color: 'All',
+        size: 'All',
+        onlyAvailable: false,
+        sortBy: 'newest',
+        query: '',
+        mobileFilterOpen: false,
+      },
+      productDetail: {
+        productId: PRODUCTS[0].id,
+        color: 'Black',
+        size: null,
+        quantity: 1,
+        activeImageIdx: 0,
+        openAccordion: 'fabric',
+      },
+      customForm: {
+        color: 'Black',
+        size: 'M',
+        placement: 'Front',
+        uploadedFile: null,
+        submittedRequest: null,
+      },
+      openFaqIdx: 0,
+      lastOrder: null,
+      cart: [],
+    };
+
+    // Load cart from localStorage safely
+    try {
+      const savedCart = localStorage.getItem('aurix_cart_html_v1');
+      if (savedCart) state.cart = JSON.parse(savedCart);
+    } catch (e) {
+      state.cart = [];
+    }
+
+    function saveCart() {
+      try {
+        localStorage.setItem('aurix_cart_html_v1', JSON.stringify(state.cart));
+      } catch (e) {
+        // Ignore storage restrictions
+      }
+      updateHeaderAndCartUI();
+    }
+
+    // ========================================================================
+    // 3. UTILITIES (CURRENCY, HTML ESCAPING, CLIPBOARD, TOAST, FALLBACKS)
+    // ========================================================================
+    function formatINR(amount) {
+      return '₹' + Number(amount).toLocaleString('en-IN');
+    }
+
+    function escapeHTML(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    let toastTimer = null;
+    function showToast(message) {
+      const bar = document.getElementById('toast-bar');
+      const text = document.getElementById('toast-text');
+      if (!bar || !text) return;
+      text.textContent = message;
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        bar.classList.add('hidden');
+        bar.classList.remove('flex');
+      }, 3000);
+    }
+
+    function copyTextToClipboard(text) {
+      try {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('Summary copied for Instagram DM');
+      } catch (err) {
+        showToast('Could not copy automatically');
+      }
+    }
+
+    function imgTag(src, alt, classes, fallbackLabel) {
+      const safeAlt = escapeHTML(alt);
+      const safeLabel = escapeHTML(fallbackLabel || alt || 'AURIX™');
+      const safeSrc = escapeHTML(src);
+      return `<img
+        src="${safeSrc}"
+        alt="${safeAlt}"
+        loading="lazy"
+        class="${classes}"
+        onerror="this.onerror=null;this.src='https://placehold.co/600x800/E7DCCD/252321?text='+encodeURIComponent('${safeLabel}')"
+      />`;
+    }
+
+    function instagramIconSVG(cls = 'w-4 h-4') {
+      return `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>`;
+    }
+
+    // ========================================================================
+    // 4. HEADER, OVERLAYS & CART MANAGEMENT
+    // ========================================================================
+    function updateHeaderAppearance() {
+      const header = document.getElementById('site-header');
+      const logoContainer = document.getElementById('header-logo-container');
+      const badge = document.getElementById('header-cart-badge');
+      const isTransparent = state.page === 'home' && !state.isScrolled;
+
+      if (isTransparent) {
+        header.className = 'sticky top-0 z-30 transition-all duration-300 bg-transparent text-[#F5F0E8] -mb-[72px]';
+        logoContainer.innerHTML = `<img src="${LOGOS.fullLight}" alt="AURIX™" class="h-9 sm:h-11 w-auto object-contain select-none" onerror="this.outerHTML='<span class=\\'font-heading text-lg font-bold tracking-[0.22em] uppercase text-[#F5F0E8]\\'>AURIX™</span>'" />`;
+        badge.classList.remove('bg-[#0A0A0A]', 'text-[#F5F0E8]');
+        badge.classList.add('bg-[#F5F0E8]', 'text-[#0A0A0A]');
+      } else {
+        header.className = 'sticky top-0 z-30 transition-all duration-300 bg-[#F5F0E8]/95 backdrop-blur-md text-[#0A0A0A] border-b border-[#B6AA9B]/40';
+        logoContainer.innerHTML = `<img src="${LOGOS.fullDark}" alt="AURIX™" class="h-9 sm:h-11 w-auto object-contain select-none" onerror="this.outerHTML='<span class=\\'font-heading text-lg font-bold tracking-[0.22em] uppercase text-[#0A0A0A]\\'>AURIX™</span>'" />`;
+        badge.classList.remove('bg-[#F5F0E8]', 'text-[#0A0A0A]');
+        badge.classList.add('bg-[#0A0A0A]', 'text-[#F5F0E8]');
+      }
+
+      document.querySelectorAll('#desktop-nav [data-nav]').forEach((btn) => {
+        const active = btn.getAttribute('data-nav') === state.page;
+        btn.classList.toggle('nav-link-active', active);
+        btn.classList.toggle('font-semibold', active);
+      });
+    }
+
+    function getCartTotals() {
+      const count = state.cart.reduce((s, i) => s + i.quantity, 0);
+      const subtotal = state.cart.reduce((s, i) => s + i.price * i.quantity, 0);
+      const shipping = subtotal === 0 || subtotal >= BRAND.freeShippingThreshold ? 0 : BRAND.deliveryFee;
+      return { count, subtotal, shipping, total: subtotal + shipping };
+    }
+
+    function updateHeaderAndCartUI() {
+      const { count, subtotal, shipping } = getCartTotals();
+      const badge = document.getElementById('header-cart-badge');
+      if (count > 0) {
+        badge.textContent = count;
+        badge.classList.remove('hidden');
+        badge.classList.add('flex');
+      } else {
+        badge.classList.add('hidden');
+        badge.classList.remove('flex');
+      }
+
+      // Render Cart Drawer contents
+      const title = document.getElementById('cart-drawer-title');
+      const body = document.getElementById('cart-drawer-body');
+      const footer = document.getElementById('cart-drawer-footer');
+      if (title) title.textContent = `Your Cart (${count})`;
+
+      if (state.cart.length === 0) {
+        body.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center py-12 space-y-4">
+            <div class="text-[#B6AA9B] text-3xl">🛍</div>
+            <div class="space-y-1">
+              <p class="font-heading text-base font-semibold uppercase tracking-wider">Your cart is empty</p>
+              <p class="text-xs text-[#252321]/70 max-w-xs">Explore AURIX Originals or start a custom printed T-shirt request.</p>
+            </div>
+            <button type="button" onclick="closeCartDrawer(); navigateTo('shop', { category: 'All' })" class="mt-2 px-6 py-3 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#252321] transition-colors">
+              Explore Collection
+            </button>
+          </div>
+        `;
+        footer.innerHTML = '';
+      } else {
+        body.innerHTML = state.cart.map((item) => `
+          <div class="flex gap-4 pb-5 border-b border-[#B6AA9B]/40 last:border-b-0">
+            <button type="button" onclick="closeCartDrawer(); openProduct('${item.productId}', '${item.color}')" class="w-20 h-24 bg-[#E7DCCD] shrink-0 overflow-hidden border border-[#B6AA9B]/30">
+              ${imgTag(item.image, item.name, 'w-full h-full object-cover object-top', item.name)}
+            </button>
+            <div class="flex-1 min-w-0 flex flex-col justify-between">
+              <div>
+                <div class="flex items-start justify-between gap-2">
+                  <h3 class="font-heading text-sm font-semibold text-[#0A0A0A] leading-snug">${escapeHTML(item.name)}</h3>
+                  <button type="button" onclick="removeFromCart('${item.key}')" class="text-[#252321]/60 hover:text-[#0A0A0A] text-xs px-1" aria-label="Remove item">✕</button>
+                </div>
+                <p class="text-xs text-[#252321]/70 mt-1">${item.color} · Size ${item.size}</p>
+              </div>
+              <div class="flex items-center justify-between pt-3">
+                <div class="inline-flex items-center border border-[#B6AA9B] bg-[#FFFFFF]">
+                  <button type="button" onclick="updateCartQty('${item.key}', -1)" class="px-2.5 py-1 hover:bg-[#E7DCCD]" aria-label="Decrease">−</button>
+                  <span class="px-3 text-xs font-heading font-semibold">${item.quantity}</span>
+                  <button type="button" onclick="updateCartQty('${item.key}', 1)" class="px-2.5 py-1 hover:bg-[#E7DCCD]" aria-label="Increase">+</button>
+                </div>
+                <span class="font-heading text-sm font-semibold">${formatINR(item.price * item.quantity)}</span>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        footer.innerHTML = `
+          <div class="p-6 bg-[#E7DCCD]/60 border-t border-[#B6AA9B]/60 space-y-4">
+            <div class="space-y-1.5 text-sm">
+              <div class="flex items-center justify-between">
+                <span class="text-[#252321]/80">Subtotal</span>
+                <span class="font-heading font-bold text-base">${formatINR(subtotal)}</span>
+              </div>
+              <div class="flex items-center justify-between text-xs text-[#252321]/75">
+                <span>Estimated Delivery</span>
+                <span>${shipping === 0 ? 'Complimentary' : formatINR(shipping)}</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-2.5">
+              <button type="button" onclick="closeCartDrawer(); navigateTo('checkout')" class="w-full py-3.5 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#252321] transition-colors">Proceed to Checkout</button>
+              <button type="button" onclick="closeCartDrawer(); navigateTo('cart')" class="w-full py-2.5 border border-[#0A0A0A] text-[#0A0A0A] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#0A0A0A] hover:text-[#F5F0E8] transition-colors">View Full Cart</button>
+            </div>
+          </div>
+        `;
+      }
+
+      // If currently viewing dedicated cart page, keep it synced
+      if (state.page === 'cart') {
+        renderCurrentPage();
+      }
+    }
+
+    function addToCart(productId, color, size, quantity = 1, openDrawer = true) {
+      const product = PRODUCTS.find((p) => p.id === productId);
+      if (!product) return;
+      const key = `${product.id}_${color}_${size}`;
+      const image = (product.imagesByColor[color] && product.imagesByColor[color][0]) || Object.values(product.imagesByColor)[0][0];
+
+      const existing = state.cart.find((i) => i.key === key);
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        state.cart.push({
+          key,
+          productId: product.id,
+          name: product.name,
+          sku: product.sku,
+          category: product.category,
+          price: product.price,
+          color,
+          size,
+          quantity,
+          image,
+        });
+      }
+      saveCart();
+      if (openDrawer) {
+        openCartDrawer();
+      } else {
+        showToast(`Added ${product.name} (${color} / ${size})`);
+      }
+    }
+
+    function updateCartQty(key, delta) {
+      state.cart = state.cart
+        .map((item) => (item.key === key ? { ...item, quantity: Math.max(0, item.quantity + delta) } : item))
+        .filter((item) => item.quantity > 0);
+      saveCart();
+    }
+
+    function removeFromCart(key) {
+      state.cart = state.cart.filter((item) => item.key !== key);
+      saveCart();
+    }
+
+    // Overlay Toggles
+    function openMobileMenu() {
+      document.getElementById('mobile-menu-overlay').classList.remove('hidden');
+      document.getElementById('mobile-menu-overlay').classList.add('flex');
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobile-menu-overlay').classList.add('hidden');
+      document.getElementById('mobile-menu-overlay').classList.remove('flex');
+    }
+    function openCartDrawer() {
+      updateHeaderAndCartUI();
+      document.getElementById('cart-drawer-overlay').classList.remove('hidden');
+      document.getElementById('cart-drawer-overlay').classList.add('flex');
+    }
+    function closeCartDrawer() {
+      document.getElementById('cart-drawer-overlay').classList.add('hidden');
+      document.getElementById('cart-drawer-overlay').classList.remove('flex');
+    }
+    function openSizeGuide() {
+      document.getElementById('size-guide-modal').classList.remove('hidden');
+      document.getElementById('size-guide-modal').classList.add('flex');
+    }
+    function closeSizeGuide() {
+      document.getElementById('size-guide-modal').classList.add('hidden');
+      document.getElementById('size-guide-modal').classList.remove('flex');
+    }
+    function openSearch() {
+      const overlay = document.getElementById('search-overlay');
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+      const input = document.getElementById('global-search-input');
+      input.value = '';
+      renderSearchResults('');
+      setTimeout(() => input.focus(), 50);
+    }
+    function closeSearch() {
+      document.getElementById('search-overlay').classList.add('hidden');
+      document.getElementById('search-overlay').classList.remove('flex');
+    }
+
+    function renderSearchResults(query) {
+      const container = document.getElementById('search-results-container');
+      const q = (query || '').trim().toLowerCase();
+      const results = !q
+        ? PRODUCTS.slice(0, 4)
+        : PRODUCTS.filter(
+            (p) =>
+              p.name.toLowerCase().includes(q) ||
+              p.category.toLowerCase().includes(q) ||
+              p.tagline.toLowerCase().includes(q) ||
+              p.description.toLowerCase().includes(q)
+          );
+
+      if (results.length === 0) {
+        container.innerHTML = `
+          <div class="py-8 text-center space-y-2">
+            <p class="text-sm text-[#252321]">No T-shirts matched "${escapeHTML(query)}".</p>
+            <button type="button" onclick="closeSearch(); navigateTo('custom')" class="text-xs font-heading uppercase tracking-[0.18em] underline text-[#0A0A0A]">
+              Want something specific? Create a Custom Tee
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = `
+        <p class="text-[10px] font-heading tracking-[0.22em] uppercase text-[#252321]/65 mb-4">
+          ${q ? `Results (${results.length})` : 'Featured Standard-Fit Tees'}
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          ${results
+            .map(
+              (p) => `
+            <button type="button" onclick="closeSearch(); openProduct('${p.id}', '${p.defaultColor}')" class="flex items-center gap-3.5 p-2.5 text-left bg-[#FFFFFF] border border-[#B6AA9B]/40 hover:border-[#0A0A0A] transition-colors">
+              <div class="w-14 h-18 bg-[#E7DCCD] shrink-0 overflow-hidden">
+                ${imgTag(p.imagesByColor[p.defaultColor][0], p.name, 'w-full h-full object-cover object-top', p.name)}
+              </div>
+              <div class="min-w-0">
+                <p class="text-[10px] uppercase tracking-[0.16em] text-[#252321]/60">${p.category}</p>
+                <p class="font-heading text-sm font-semibold text-[#0A0A0A] truncate">${escapeHTML(p.name)}</p>
+                <p class="text-xs font-medium text-[#252321] mt-0.5">${formatINR(p.price)}</p>
+              </div>
+            </button>
+          `
+            )
+            .join('')}
+        </div>
+      `;
+    }
+
+    // ========================================================================
+    // 5. REUSABLE PRODUCT CARD COMPONENT
+    // ========================================================================
+    function renderProductCard(product, instancePrefix = 'card') {
+      const cardId = `${instancePrefix}-${product.id}`;
+      const color = product.defaultColor || 'Black';
+      const imgs = product.imagesByColor[color] || [];
+      const primary = imgs[0];
+      const secondary = imgs[1] || imgs[0];
+
+      return `
+        <article id="${cardId}" data-color="${color}" class="group flex flex-col">
+          <div onclick="openProduct('${product.id}', document.getElementById('${cardId}').dataset.color)" class="relative aspect-[3/4] w-full overflow-hidden bg-[#E7DCCD] cursor-pointer border border-[#B6AA9B]/30">
+            <img
+              data-primary
+              src="${escapeHTML(primary)}"
+              alt="${escapeHTML(product.name)} in ${color}"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x800/E7DCCD/252321?text='+encodeURIComponent('${escapeHTML(product.name)}')"
+              class="w-full h-full object-cover object-top transition-all duration-700 ease-out group-hover:opacity-0 group-hover:scale-105"
+            />
+            <img
+              data-secondary
+              src="${escapeHTML(secondary)}"
+              alt="${escapeHTML(product.name)} alternate view"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x800/E7DCCD/252321?text='+encodeURIComponent('${escapeHTML(product.name)}')"
+              class="absolute inset-0 w-full h-full object-cover object-top opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+            />
+            ${
+              product.tag
+                ? `<span class="absolute top-3 left-3 bg-[#0A0A0A] text-[#F5F0E8] text-[10px] font-heading font-semibold tracking-[0.2em] uppercase px-2.5 py-1">${product.tag}</span>`
+                : ''
+            }
+            <!-- Quick Add Bar -->
+            <div onclick="event.stopPropagation()" class="absolute inset-x-0 bottom-0 bg-[#F5F0E8]/95 backdrop-blur-sm border-t border-[#B6AA9B]/50 translate-y-full group-hover:translate-y-0 transition-transform duration-300" data-quick-drawer>
+              <div class="p-3">
+                <p class="text-[10px] font-heading tracking-[0.18em] uppercase text-[#252321]/75 mb-2 text-center">Quick Add Size</p>
+                <div class="grid grid-cols-4 gap-1.5">
+                  ${product.sizes
+                    .map(
+                      (s) => `
+                    <button type="button" onclick="addToCart('${product.id}', document.getElementById('${cardId}').dataset.color, '${s}', 1, true)" class="py-1.5 text-xs font-heading font-semibold border border-[#B6AA9B] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-[#F5F0E8] transition-colors">
+                      ${s}
+                    </button>
+                  `
+                    )
+                    .join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3.5 flex flex-col flex-1 justify-between gap-2">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <p class="text-[10px] tracking-[0.18em] uppercase text-[#252321]/65 mb-0.5">${product.category}</p>
+                <button type="button" onclick="openProduct('${product.id}', document.getElementById('${cardId}').dataset.color)" class="text-left font-heading text-sm md:text-[15px] font-semibold text-[#0A0A0A] hover:underline underline-offset-4 leading-snug">
+                  ${escapeHTML(product.name)}
+                </button>
+              </div>
+              <span class="font-heading text-sm font-semibold text-[#0A0A0A] shrink-0">${formatINR(product.price)}</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-1">
+              <div class="flex items-center gap-2">
+                ${product.colors
+                  .map(
+                    (c) => `
+                  <button
+                    type="button"
+                    onclick="switchCardColor('${cardId}', '${product.id}', '${c}')"
+                    data-swatch="${c}"
+                    aria-label="Select ${c}"
+                    class="w-4 h-4 rounded-full border transition-transform ${c === 'Black' ? 'bg-[#0A0A0A]' : 'bg-[#FFFFFF]'} ${
+                      c === color
+                        ? 'ring-1 ring-offset-2 ring-offset-[#F5F0E8] ring-[#0A0A0A] border-[#0A0A0A] scale-105'
+                        : 'border-[#B6AA9B]'
+                    }"
+                  ></button>
+                `
+                  )
+                  .join('')}
+                <span data-color-label class="text-[11px] text-[#252321]/70 ml-1">${color}</span>
+              </div>
+              <button type="button" onclick="openProduct('${product.id}', document.getElementById('${cardId}').dataset.color)" class="md:hidden text-[11px] font-heading font-semibold uppercase tracking-[0.14em] text-[#0A0A0A] underline underline-offset-4">
+                Select
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function switchCardColor(cardId, productId, color) {
+      const card = document.getElementById(cardId);
+      const product = PRODUCTS.find((p) => p.id === productId);
+      if (!card || !product) return;
+
+      card.dataset.color = color;
+      const imgs = product.imagesByColor[color] || [];
+      const primary = card.querySelector('[data-primary]');
+      const secondary = card.querySelector('[data-secondary]');
+      const label = card.querySelector('[data-color-label]');
+
+      if (primary && imgs[0]) primary.src = imgs[0];
+      if (secondary && (imgs[1] || imgs[0])) secondary.src = imgs[1] || imgs[0];
+      if (label) label.textContent = color;
+
+      card.querySelectorAll('[data-swatch]').forEach((btn) => {
+        const active = btn.getAttribute('data-swatch') === color;
+        btn.className = `w-4 h-4 rounded-full border transition-transform ${
+          btn.getAttribute('data-swatch') === 'Black' ? 'bg-[#0A0A0A]' : 'bg-[#FFFFFF]'
+        } ${
+          active
+            ? 'ring-1 ring-offset-2 ring-offset-[#F5F0E8] ring-[#0A0A0A] border-[#0A0A0A] scale-105'
+            : 'border-[#B6AA9B]'
+        }`;
+      });
+    }
+
+    // ========================================================================
+    // 6. ROUTING & PAGE RENDERERS (ALL 13 PAGES)
+    // ========================================================================
+    function navigateTo(page, options = {}) {
+      if (options.category) state.shop.category = options.category;
+      if (options.productId) {
+        state.productDetail = {
+          productId: options.productId,
+          color: options.color || 'Black',
+          size: null,
+          quantity: 1,
+          activeImageIdx: 0,
+          openAccordion: 'fabric',
+        };
+      }
+      state.page = page;
+      closeMobileMenu();
+      renderCurrentPage();
+      updateHeaderAppearance();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openProduct(productId, color = 'Black') {
+      navigateTo('product', { productId, color });
+    }
+
+    function renderCurrentPage() {
+      const main = document.getElementById('app-main');
+      switch (state.page) {
+        case 'home':
+          main.innerHTML = renderHomePage();
+          break;
+        case 'shop':
+          main.innerHTML = renderShopPage();
+          break;
+        case 'originals':
+          main.innerHTML = renderOriginalsPage();
+          break;
+        case 'custom':
+          main.innerHTML = renderCustomPrintsPage();
+          break;
+        case 'product':
+          main.innerHTML = renderProductDetailPage();
+          break;
+        case 'about':
+          main.innerHTML = renderAboutPage();
+          break;
+        case 'cart':
+          main.innerHTML = renderCartPage();
+          break;
+        case 'checkout':
+          main.innerHTML = renderCheckoutPage();
+          break;
+        case 'confirmation':
+          main.innerHTML = renderOrderConfirmationPage();
+          break;
+        case 'faqs':
+          main.innerHTML = renderFAQPage();
+          break;
+        case 'shipping':
+          main.innerHTML = renderPolicyPage('shipping');
+          break;
+        case 'privacy':
+          main.innerHTML = renderPolicyPage('privacy');
+          break;
+        case 'terms':
+          main.innerHTML = renderPolicyPage('terms');
+          break;
+        default:
+          main.innerHTML = renderHomePage();
+      }
+    }
+
+    // --- PAGE 1: HOME ---
+    function setHomeTab(tab) {
+      state.homeTab = tab;
+      const tabsEl = document.getElementById('home-category-tabs');
+      const gridEl = document.getElementById('home-products-grid');
+      if (tabsEl && gridEl) {
+        const list = tab === 'All' ? PRODUCTS : PRODUCTS.filter((p) => p.category === tab);
+        gridEl.innerHTML = list.map((p) => renderProductCard(p, 'home')).join('');
+        tabsEl.querySelectorAll('button').forEach((btn) => {
+          const active = btn.dataset.tab === tab;
+          btn.className = `px-4 py-2 text-[11px] font-heading font-semibold tracking-[0.18em] uppercase whitespace-nowrap border transition-colors ${
+            active ? 'bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : 'bg-transparent text-[#252321] border-[#B6AA9B]/60 hover:border-[#0A0A0A]'
+          }`;
+        });
+      }
+    }
+
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('newsletter-email');
+      const status = document.getElementById('newsletter-status');
+      const email = (input.value || '').trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        status.className = 'text-xs pt-1 text-red-800';
+        status.textContent = 'Please enter a valid email address.';
+        return;
+      }
+      status.className = 'text-xs pt-1 text-[#252321]/85';
+      status.textContent = 'Saved locally (frontend preview). Connect your email provider to activate live drops.';
+      input.value = '';
+      showToast('Email validated for AURIX list');
+    }
+
+    function renderHomePage() {
+      const homeList = state.homeTab === 'All' ? PRODUCTS : PRODUCTS.filter((p) => p.category === state.homeTab);
+      return `
+        <div>
+          <!-- C. CINEMATIC HERO -->
+          <section class="relative min-h-[92vh] sm:min-h-[95vh] w-full flex items-end bg-[#0A0A0A] overflow-hidden">
+            <div class="absolute inset-0 grid grid-cols-1 md:grid-cols-2">
+              <div class="relative h-full w-full overflow-hidden">
+                ${imgTag('images/AURIX in Sunlit Concrete.png', 'AURIX Signature Logo Tee in Black', 'w-full h-full object-cover object-top scale-[1.01]', 'AURIX')}
+              </div>
+              <div class="hidden md:block relative h-full w-full overflow-hidden">
+                ${imgTag('images/Sunlit AURIX Editorial Portrait.png', 'AURIX Editorial Portrait', 'w-full h-full object-cover object-top scale-[1.01]', 'AURIX')}
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/85 via-[#0A0A0A]/35 to-[#0A0A0A]/35"></div>
+            <div class="relative z-10 max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-10 pb-14 sm:pb-20 pt-36">
+              <div class="max-w-3xl space-y-6">
+                <p class="text-[11px] font-heading tracking-[0.3em] uppercase text-[#E7DCCD]">AURIX™ INAUGURAL COLLECTION · STANDARD-FIT TEES</p>
+                <h1 class="font-heading text-5xl sm:text-6xl lg:text-8xl font-bold text-[#F5F0E8] tracking-tight leading-[0.94] uppercase">NOT MADE TO BLEND IN.</h1>
+                <p class="text-base sm:text-lg text-[#E7DCCD]/90 font-light max-w-xl">Original designs. Custom prints. Nothing ordinary.</p>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+                  <button type="button" onclick="navigateTo('originals')" class="px-8 py-4 bg-[#F5F0E8] text-[#0A0A0A] text-xs font-heading font-bold tracking-[0.22em] uppercase hover:bg-[#FFFFFF] transition-colors inline-flex items-center justify-center gap-3">
+                    Shop Originals <span>→</span>
+                  </button>
+                  <button type="button" onclick="navigateTo('custom')" class="px-8 py-4 border border-[#F5F0E8]/75 text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.22em] uppercase hover:bg-[#F5F0E8] hover:text-[#0A0A0A] transition-colors inline-flex items-center justify-center gap-3">
+                    Create Your Custom Tee
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- D. FEATURED COLLECTIONS -->
+          <section class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-20 md:py-28">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+              <div class="lg:col-span-7 group relative overflow-hidden bg-[#E7DCCD] border border-[#B6AA9B]/40 flex flex-col justify-between">
+                <div class="relative aspect-[4/5] sm:aspect-[16/11] lg:aspect-[5/4] overflow-hidden">
+                  ${imgTag('images/AURIX Built to Be Different.png', 'AURIX Originals Collection', 'w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700', 'AURIX Originals')}
+                </div>
+                <div class="p-7 sm:p-10 bg-[#F5F0E8] border-t border-[#B6AA9B]/40 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+                  <div class="space-y-2 max-w-md">
+                    <p class="text-[11px] font-heading tracking-[0.24em] uppercase text-[#252321]/65">COLLECTION 01</p>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase tracking-tight">AURIX ORIGINALS</h2>
+                    <p class="text-sm text-[#252321]/80 leading-relaxed">Original artwork. Distinctive graphics. Made to stand apart.</p>
+                  </div>
+                  <button type="button" onclick="navigateTo('originals')" class="px-6 py-3.5 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#252321] transition-colors inline-flex items-center gap-2.5 shrink-0 self-start sm:self-end">
+                    Explore Originals <span>↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="lg:col-span-5 group bg-[#252321] text-[#F5F0E8] flex flex-col justify-between border border-[#252321]">
+                <div class="p-7 sm:p-10 space-y-4">
+                  <p class="text-[11px] font-heading tracking-[0.24em] uppercase text-[#B6AA9B]">COLLECTION 02 · CUSTOM PRINTS</p>
+                  <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase tracking-tight leading-none">MAKE IT YOURS.</h2>
+                  <p class="text-sm text-[#E7DCCD]/85 leading-relaxed max-w-sm">Your idea, your graphic, your statement. We bring it to life on our signature standard-fit canvas.</p>
+                  <div class="pt-2">
+                    <button type="button" onclick="navigateTo('custom')" class="px-6 py-3.5 bg-[#F5F0E8] text-[#0A0A0A] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#FFFFFF] transition-colors inline-flex items-center gap-2.5">
+                      Create Your Custom Tee <span>→</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="relative aspect-[4/4] sm:aspect-[16/10] lg:aspect-[4/4] overflow-hidden mt-auto">
+                  ${imgTag('images/Sunlit Concrete Streetwear Portrait.png', 'Custom Printed Standard-Fit T-Shirt Canvas', 'w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700', 'Custom Prints')}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- E. FEATURED PRODUCTS -->
+          <section class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-14 md:py-20 border-t border-[#B6AA9B]/40">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+              <div class="space-y-2">
+                <p class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/65">CURATED DROPS · STANDARD-FIT TEES</p>
+                <h2 class="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight">THE LINEUP</h2>
+              </div>
+              <button type="button" onclick="navigateTo('shop', { category: 'All' })" class="text-xs font-heading font-semibold tracking-[0.2em] uppercase text-[#0A0A0A] inline-flex items-center gap-2 border-b border-[#0A0A0A] pb-1 self-start md:self-end hover:opacity-70 transition-opacity">
+                View All T-Shirts <span>→</span>
+              </button>
+            </div>
+
+            <div id="home-category-tabs" class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+              ${['All', ...DROP_CATEGORIES.map((c) => c.id)]
+                .map(
+                  (tab) => `
+                <button type="button" data-tab="${tab}" onclick="setHomeTab('${tab}')" class="px-4 py-2 text-[11px] font-heading font-semibold tracking-[0.18em] uppercase whitespace-nowrap border transition-colors ${
+                  state.homeTab === tab ? 'bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : 'bg-transparent text-[#252321] border-[#B6AA9B]/60 hover:border-[#0A0A0A]'
+                }">${tab}</button>
+              `
+                )
+                .join('')}
+            </div>
+
+            <div id="home-products-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-12">
+              ${homeList.map((p) => renderProductCard(p, 'home')).join('')}
+            </div>
+          </section>
+
+          <!-- F. BRAND STATEMENT -->
+          <section class="bg-[#0A0A0A] text-[#F5F0E8] py-24 md:py-32 my-12">
+            <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-8">
+                  <div class="flex items-center gap-3">
+                    <img src="${LOGOS.emblemLight}" alt="AURIX Emblem" class="h-8 w-8 object-contain" onerror="this.style.display='none'" />
+                    <span class="text-[11px] font-heading tracking-[0.28em] uppercase text-[#B6AA9B]">BRAND MANIFESTO</span>
+                  </div>
+                  <h2 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight leading-[1.02]">
+                    MORE THAN JUST A T-SHIRT.<br />
+                    <span class="text-[#E7DCCD]">IT'S A STATEMENT.</span>
+                  </h2>
+                  <p class="text-base sm:text-lg text-[#E7DCCD]/80 max-w-xl leading-relaxed font-light">
+                    AURIX is for the dreamers, the creators, and those who choose to stand out. Wear your individuality. Embrace the difference.
+                  </p>
+                  <button type="button" onclick="navigateTo('about')" class="inline-flex items-center gap-2.5 text-xs font-heading font-semibold tracking-[0.22em] uppercase text-[#F5F0E8] border-b border-[#F5F0E8]/50 pb-1.5 hover:border-[#F5F0E8] transition-colors">
+                    Read Our Story <span>↗</span>
+                  </button>
+                </div>
+                <div class="lg:col-span-5">
+                  <div class="aspect-[4/5] overflow-hidden border border-white/10">
+                    ${imgTag('images/Moody Editorial Portrait in Black Tee.png', 'AURIX Minimal Emblem Tee Editorial', 'w-full h-full object-cover object-top', 'AURIX')}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- G. CUSTOM PRINTING PROCESS -->
+          <section class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-16 md:py-24">
+            <div class="bg-[#E7DCCD] border border-[#B6AA9B]/60 p-8 sm:p-12 lg:p-16">
+              <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#B6AA9B]/60">
+                <div class="space-y-2">
+                  <p class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/70">CUSTOM PRINTS · HOW IT WORKS</p>
+                  <h2 class="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight">YOUR IDEA. MADE WEARABLE.</h2>
+                </div>
+                <button type="button" onclick="navigateTo('custom')" class="px-7 py-4 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#252321] transition-colors inline-flex items-center gap-2.5 self-start md:self-end">
+                  Start Your Custom Order <span>→</span>
+                </button>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pt-12">
+                <div class="space-y-4">
+                  <span class="font-heading text-4xl sm:text-5xl font-bold text-[#0A0A0A]/25 block">01</span>
+                  <h3 class="font-heading text-xl font-bold uppercase tracking-wider text-[#0A0A0A]">01 — YOUR IDEA</h3>
+                  <p class="text-sm text-[#252321]/85 leading-relaxed">Upload your artwork, image, text or concept and choose your standard-fit T-shirt color and placement.</p>
+                </div>
+                <div class="space-y-4">
+                  <span class="font-heading text-4xl sm:text-5xl font-bold text-[#0A0A0A]/25 block">02</span>
+                  <h3 class="font-heading text-xl font-bold uppercase tracking-wider text-[#0A0A0A]">02 — WE MAKE IT</h3>
+                  <p class="text-sm text-[#252321]/85 leading-relaxed">We review your design, confirm final pricing with you, and prepare it for crisp printing onto your selected tee.</p>
+                </div>
+                <div class="space-y-4">
+                  <span class="font-heading text-4xl sm:text-5xl font-bold text-[#0A0A0A]/25 block">03</span>
+                  <h3 class="font-heading text-xl font-bold uppercase tracking-wider text-[#0A0A0A]">03 — IT'S YOURS</h3>
+                  <p class="text-sm text-[#252321]/85 leading-relaxed">Your idea becomes something you can wear—one-of-one self-expression built to stand apart.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- H. LOOKBOOK -->
+          <section class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-16 md:py-24">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+              <div class="space-y-2">
+                <p class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/65">CAMPAIGN 01 · SUNLIT CONCRETE</p>
+                <h2 class="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight">THE LOOKBOOK</h2>
+              </div>
+              <p class="text-xs sm:text-sm text-[#252321]/75 max-w-xs">Architectural light, natural silhouettes, and stark monochrome statements.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6">
+              ${LOOKBOOK_ITEMS.map(
+                (item) => `
+                <button type="button" onclick="openProduct('${item.productId}')" class="group relative overflow-hidden bg-[#E7DCCD] border border-[#B6AA9B]/30 text-left ${item.span} ${item.aspect}">
+                  ${imgTag(item.src, item.caption, 'w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700', item.caption)}
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/65 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+                  <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[#F5F0E8]">
+                    <span class="text-[10px] sm:text-[11px] font-heading tracking-[0.22em] uppercase">${item.caption}</span>
+                    <span>↗</span>
+                  </div>
+                </button>
+              `
+              ).join('')}
+            </div>
+          </section>
+
+          <!-- I. QUALITY SECTION -->
+          <section class="border-y border-[#B6AA9B]/40 bg-[#FFFFFF]/55 py-20 md:py-28">
+            <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                  <div class="aspect-[3/4] overflow-hidden bg-[#E7DCCD]">
+                    ${imgTag('images/AURIX Urban Concrete Portrait.png', 'AURIX Collar and Print Detail', 'w-full h-full object-cover object-center', 'Detail 01')}
+                  </div>
+                  <div class="aspect-[3/4] overflow-hidden bg-[#E7DCCD] mt-8">
+                    ${imgTag('images/No Context-f2.png', 'AURIX Garment Construction', 'w-full h-full object-cover object-center', 'Detail 02')}
+                  </div>
+                </div>
+                <div class="lg:col-span-7 space-y-8">
+                  <div class="space-y-3">
+                    <p class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/65">CRAFT &amp; CONSTRUCTION</p>
+                    <h2 class="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight">QUALITY THAT SPEAKS.</h2>
+                    <p class="text-sm sm:text-base text-[#252321]/80 max-w-xl leading-relaxed">
+                      Every AURIX™ standard-fit T-shirt is selected for clean drape, crisp graphic definition, and daily wearability—without unnecessary hype or inflated claims.
+                    </p>
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                    ${[
+                      ['Comfortable fabric', 'Breathable, soft-hand feel chosen for all-day comfort across Indian weather.'],
+                      ['Durable print quality', 'Clean edges and high-contrast monochrome ink designed to hold sharp clarity.'],
+                      ['Thoughtful designs', 'Original typography and deliberate chest proportions—never crowded or loud.'],
+                      ['Everyday wearability', 'Balanced standard-fit silhouette that layers cleanly or stands on its own.'],
+                    ]
+                      .map(
+                        ([t, d], idx) => `
+                      <div class="p-5 bg-[#F5F0E8] border border-[#B6AA9B]/50 space-y-2">
+                        <span class="text-[10px] font-heading tracking-[0.2em] text-[#252321]/60">0${idx + 1}</span>
+                        <h3 class="font-heading text-base font-bold uppercase tracking-wide text-[#0A0A0A]">${t}</h3>
+                        <p class="text-xs sm:text-sm text-[#252321]/80 leading-relaxed">${d}</p>
+                      </div>
+                    `
+                      )
+                      .join('')}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- J. INSTAGRAM SECTION -->
+          <section class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-20 md:py-28">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+              <div class="space-y-2">
+                <p class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/65">${BRAND.instagramHandle}</p>
+                <h2 class="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight">THE WORLD OF AURIX.</h2>
+                <p class="text-sm text-[#252321]/80">Different looks. Different perspectives. One identity.</p>
+              </div>
+              <a href="${BRAND.instagramUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 border border-[#0A0A0A] text-[#0A0A0A] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#0A0A0A] hover:text-[#F5F0E8] transition-colors inline-flex items-center gap-2.5 self-start md:self-end">
+                ${instagramIconSVG('w-4 h-4')} Follow ${BRAND.instagramHandle}
+              </a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+              ${INSTAGRAM_TILES.map(
+                (tile) => `
+                <a href="${BRAND.instagramUrl}" target="_blank" rel="noopener noreferrer" class="group relative aspect-square overflow-hidden bg-[#E7DCCD] border border-[#B6AA9B]/30">
+                  ${imgTag(tile.src, `AURIX Instagram — ${tile.label}`, 'w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500', tile.label)}
+                  <div class="absolute inset-0 bg-[#0A0A0A]/0 group-hover:bg-[#0A0A0A]/45 transition-colors flex items-center justify-center text-[#F5F0E8] opacity-0 group-hover:opacity-100">
+                    ${instagramIconSVG('w-5 h-5')}
+                  </div>
+                </a>
+              `
+              ).join('')}
+            </div>
+          </section>
+
+          <!-- K. NEWSLETTER -->
+          <section class="bg-[#E7DCCD]/75 border-t border-[#B6AA9B]/50 py-20">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center space-y-5">
+              <p class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/70">EARLY ACCESS</p>
+              <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase tracking-tight">BE THE FIRST TO KNOW.</h2>
+              <p class="text-sm text-[#252321]/80">Get first access to new designs, drops and everything AURIX.</p>
+              <form onsubmit="handleNewsletterSubmit(event)" class="flex flex-col sm:flex-row gap-3 pt-3 max-w-lg mx-auto" novalidate>
+                <input id="newsletter-email" type="email" placeholder="Enter your email" aria-label="Email address" class="flex-1 px-4 py-3.5 bg-[#F5F0E8] border border-[#B6AA9B] text-sm text-[#0A0A0A] placeholder:text-[#252321]/50 focus:outline-none focus:border-[#0A0A0A]" />
+                <button type="submit" class="px-7 py-3.5 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#252321] transition-colors shrink-0">Join The List</button>
+              </form>
+              <p id="newsletter-status" class="text-xs"></p>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    // --- PAGE 2: SHOP ALL ---
+    function getFilteredShopProducts() {
+      let list = [...PRODUCTS];
+      const s = state.shop;
+      if (s.category !== 'All' && s.category !== 'AURIX Originals') {
+        list = list.filter((p) => p.category === s.category);
+      }
+      if (s.color !== 'All') list = list.filter((p) => p.colors.includes(s.color));
+      if (s.size !== 'All') list = list.filter((p) => p.sizes.includes(s.size));
+      if (s.onlyAvailable) list = list.filter((p) => p.available);
+      if (s.query.trim()) {
+        const q = s.query.toLowerCase();
+        list = list.filter((p) => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || p.tagline.toLowerCase().includes(q));
+      }
+      if (s.sortBy === 'price-asc') list.sort((a, b) => a.price - b.price);
+      else if (s.sortBy === 'price-desc') list.sort((a, b) => b.price - a.price);
+      else list.sort((a, b) => a.isNewest - b.isNewest);
+      return list;
+    }
+
+    function updateShopFilter(key, val, fullRerender = true) {
+      state.shop[key] = val;
+      if (fullRerender) {
+        renderCurrentPage();
+      } else {
+        const gridWrap = document.getElementById('shop-results-wrap');
+        const countEl = document.getElementById('shop-count');
+        const filtered = getFilteredShopProducts();
+        if (countEl) countEl.textContent = filtered.length;
+        if (gridWrap) gridWrap.innerHTML = renderShopResultsMarkup(filtered);
+      }
+    }
+
+    function resetShopFilters() {
+      state.shop = { category: 'All', color: 'All', size: 'All', onlyAvailable: false, sortBy: 'newest', query: '', mobileFilterOpen: false };
+      renderCurrentPage();
+    }
+
+    function renderShopResultsMarkup(list) {
+      if (list.length === 0) {
+        return `
+          <div class="py-20 text-center bg-[#E7DCCD]/40 border border-[#B6AA9B]/40 space-y-4 px-6">
+            <p class="font-heading text-lg font-semibold uppercase">No matching T-shirts found</p>
+            <p class="text-sm text-[#252321]/75">Try adjusting your filters or explore our Custom Prints studio.</p>
+            <button type="button" onclick="resetShopFilters()" class="px-6 py-3 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.2em] uppercase">Reset Filters</button>
+          </div>
+        `;
+      }
+      return `<div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-12">${list.map((p) => renderProductCard(p, 'shop')).join('')}</div>`;
+    }
+
+    function renderShopPage() {
+      const s = state.shop;
+      const filtered = getFilteredShopProducts();
+      const filterHTML = `
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <label class="text-[11px] font-heading font-semibold tracking-[0.2em] uppercase text-[#252321]/75 block">Search</label>
+            <input type="text" value="${escapeHTML(s.query)}" oninput="updateShopFilter('query', this.value, false)" placeholder="Filter by title or drop..." class="w-full px-3 py-2.5 bg-[#FFFFFF] border border-[#B6AA9B]/70 text-xs focus:outline-none focus:border-[#0A0A0A]" />
+          </div>
+          <div class="space-y-2.5">
+            <p class="text-[11px] font-heading font-semibold tracking-[0.2em] uppercase text-[#252321]/75">Color</p>
+            <div class="flex flex-wrap gap-2">
+              ${['All', ...COLORS]
+                .map(
+                  (c) => `<button type="button" onclick="updateShopFilter('color', '${c}')" class="px-3.5 py-1.5 text-xs border transition-colors ${
+                    s.color === c ? 'bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : 'bg-[#FFFFFF] text-[#252321] border-[#B6AA9B]/70 hover:border-[#0A0A0A]'
+                  }">${c}</button>`
+                )
+                .join('')}
+            </div>
+          </div>
+          <div class="space-y-2.5">
+            <p class="text-[11px] font-heading font-semibold tracking-[0.2em] uppercase text-[#252321]/75">Size (Standard Fit)</p>
+            <div class="flex flex-wrap gap-2">
+              ${['All', ...SIZES]
+                .map(
+                  (sz) => `<button type="button" onclick="updateShopFilter('size', '${sz}')" class="min-w-[40px] px-3 py-1.5 text-xs font-heading font-semibold border transition-colors ${
+                    s.size === sz ? 'bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : 'bg-[#FFFFFF] text-[#252321] border-[#B6AA9B]/70 hover:border-[#0A0A0A]'
+                  }">${sz}</button>`
+                )
+                .join('')}
+            </div>
+          </div>
+          <label class="flex items-center gap-2.5 text-xs text-[#252321] cursor-pointer">
+            <input type="checkbox" ${s.onlyAvailable ? 'checked' : ''} onchange="updateShopFilter('onlyAvailable', this.checked)" class="accent-[#0A0A0A] w-4 h-4" />
+            <span>In stock only</span>
+          </label>
+          <button type="button" onclick="resetShopFilters()" class="text-xs font-heading uppercase tracking-[0.18em] underline text-[#0A0A0A]">Clear All Filters</button>
+        </div>
+      `;
+
+      return `
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-12 md:py-16">
+          <div class="pb-10 border-b border-[#B6AA9B]/50 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="space-y-2">
+              <p class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/65">STANDARD-FIT T-SHIRTS ONLY</p>
+              <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight">THE AURIX COLLECTION</h1>
+              <p class="text-sm sm:text-base text-[#252321]/80">Find your statement.</p>
+            </div>
+            <button type="button" onclick="navigateTo('custom')" class="px-5 py-3.5 bg-[#E7DCCD] border border-[#B6AA9B] text-left hover:border-[#0A0A0A] transition-colors flex items-center gap-4 self-start md:self-end">
+              <div>
+                <p class="text-[10px] font-heading tracking-[0.2em] uppercase text-[#252321]/70">CUSTOM PRINTS</p>
+                <p class="font-heading text-xs sm:text-sm font-bold uppercase">Submit Your Own Design</p>
+              </div>
+              <span>→</span>
+            </button>
+          </div>
+
+          <div class="py-6 flex items-center gap-2 overflow-x-auto border-b border-[#B6AA9B]/30 no-scrollbar">
+            ${['All', 'AURIX Originals', ...DROP_CATEGORIES.map((c) => c.id)]
+              .map(
+                (cat) => `<button type="button" onclick="updateShopFilter('category', '${cat}')" class="px-4 py-2 text-[11px] font-heading font-semibold tracking-[0.16em] uppercase whitespace-nowrap border transition-colors ${
+                  s.category === cat ? 'bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : 'bg-transparent text-[#252321] border-[#B6AA9B]/60 hover:border-[#0A0A0A]'
+                }">${cat === 'All' ? 'All T-Shirts' : cat}</button>`
+              )
+              .join('')}
+          </div>
+
+          <div class="py-5 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <button type="button" onclick="updateShopFilter('mobileFilterOpen', true)" class="lg:hidden inline-flex items-center gap-2 px-3.5 py-2 border border-[#B6AA9B] text-xs font-heading font-semibold uppercase tracking-[0.16em]">Filters</button>
+              <span class="text-xs text-[#252321]/75">Showing <strong id="shop-count" class="text-[#0A0A0A]">${filtered.length}</strong> T-shirts</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <label for="shop-sort" class="text-[11px] font-heading uppercase tracking-[0.16em] text-[#252321]/70 hidden sm:inline">Sort:</label>
+              <select id="shop-sort" onchange="updateShopFilter('sortBy', this.value)" class="bg-[#FFFFFF] border border-[#B6AA9B] px-3 py-2 text-xs font-medium text-[#0A0A0A] focus:outline-none focus:border-[#0A0A0A]">
+                <option value="newest" ${s.sortBy === 'newest' ? 'selected' : ''}>Newest</option>
+                <option value="price-asc" ${s.sortBy === 'price-asc' ? 'selected' : ''}>Price: Low to High</option>
+                <option value="price-desc" ${s.sortBy === 'price-desc' ? 'selected' : ''}>Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pt-4">
+            <aside class="hidden lg:block lg:col-span-3 pr-4 border-r border-[#B6AA9B]/30">${filterHTML}</aside>
+            <div id="shop-results-wrap" class="lg:col-span-9">${renderShopResultsMarkup(filtered)}</div>
+          </div>
+
+          ${
+            s.mobileFilterOpen
+              ? `
+            <div class="fixed inset-0 z-50 flex lg:hidden">
+              <div class="fixed inset-0 bg-[#0A0A0A]/60" onclick="updateShopFilter('mobileFilterOpen', false)"></div>
+              <div class="relative w-[84%] max-w-xs bg-[#F5F0E8] h-full p-6 overflow-y-auto shadow-2xl">
+                <div class="flex items-center justify-between pb-4 mb-6 border-b border-[#B6AA9B]/50">
+                  <h3 class="font-heading text-sm font-bold uppercase tracking-[0.2em]">Filter Collection</h3>
+                  <button type="button" onclick="updateShopFilter('mobileFilterOpen', false)">✕</button>
+                </div>
+                ${filterHTML}
+                <button type="button" onclick="updateShopFilter('mobileFilterOpen', false)" class="w-full mt-8 py-3.5 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.2em] uppercase">Show ${filtered.length} Results</button>
+              </div>
+            </div>
+          `
+              : ''
+          }
+        </div>
+      `;
+    }
+
+    // --- PAGE 3: AURIX ORIGINALS ---
+    function renderOriginalsPage() {
+      return `
+        <div>
+          <section class="bg-[#0A0A0A] text-[#F5F0E8] py-20 md:py-28">
+            <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div class="lg:col-span-7 space-y-5">
+                <p class="text-[11px] font-heading tracking-[0.28em] uppercase text-[#B6AA9B]">AURIX™ ORIGINAL ARCHIVE</p>
+                <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold uppercase tracking-tight leading-[0.96]">ORIGINALS.<br />NOTHING ORDINARY.</h1>
+                <p class="text-base text-[#E7DCCD]/85 max-w-lg leading-relaxed font-light">Created by AURIX. Inspired by individuality. Designed to stand apart. Six distinct monochrome drops on our standard-fit T-shirt silhouette.</p>
+              </div>
+              <div class="lg:col-span-5 grid grid-cols-2 gap-3">
+                <div class="aspect-[3/4] overflow-hidden border border-white/10">${imgTag('images/No Context-f2.png', 'No Context Editorial', 'w-full h-full object-cover object-top', 'No Context')}</div>
+                <div class="aspect-[3/4] overflow-hidden border border-white/10 mt-6">${imgTag('images/Unfiltered-m1.png', 'Unfiltered Editorial', 'w-full h-full object-cover object-top', 'Unfiltered')}</div>
+              </div>
+            </div>
+          </section>
+
+          <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-16 md:py-24 space-y-24">
+            ${DROP_CATEGORIES.map((drop, index) => {
+              const dropProducts = PRODUCTS.filter((p) => p.category === drop.id);
+              return `
+                <section class="pt-10 border-t border-[#B6AA9B]/50 first:border-t-0 first:pt-0">
+                  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    <div class="lg:col-span-4 space-y-4 lg:sticky lg:top-28">
+                      <span class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/60">DROP 0${index + 1}</span>
+                      <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase tracking-tight">${drop.title}</h2>
+                      <p class="font-heading text-sm font-medium text-[#0A0A0A] border-l-2 border-[#0A0A0A] pl-3.5">${drop.subtitle}</p>
+                      <p class="text-sm text-[#252321]/80 leading-relaxed">${drop.editorialNote}</p>
+                    </div>
+                    <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                      ${dropProducts.map((p) => renderProductCard(p, 'orig')).join('')}
+                    </div>
+                  </div>
+                </section>
+              `;
+            }).join('')}
+
+            <section class="bg-[#E7DCCD] border border-[#B6AA9B]/60 p-8 sm:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div class="space-y-2 max-w-xl">
+                <p class="text-[11px] font-heading tracking-[0.24em] uppercase text-[#252321]/70">HAVE YOUR OWN CONCEPT?</p>
+                <h3 class="font-heading text-2xl sm:text-3xl font-bold uppercase">TURN YOUR IDEA INTO AN AURIX TEE.</h3>
+              </div>
+              <button type="button" onclick="navigateTo('custom')" class="px-7 py-4 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#252321] transition-colors inline-flex items-center gap-2.5 shrink-0">
+                Go to Custom Prints <span>→</span>
+              </button>
+            </section>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- PAGE 4: CUSTOM PRINTS ---
+    function setCustomOption(field, value) {
+      state.customForm[field] = value;
+      document.querySelectorAll(`[data-custom-${field}]`).forEach((btn) => {
+        const active = btn.getAttribute(`data-custom-${field}`) === value;
+        btn.className = btn.className
+          .replace(/bg-\[#0A0A0A\] text-\[#F5F0E8\] border-\[#0A0A0A\]|bg-\[#F5F0E8\]\/50 text-\[#0A0A0A\] border-\[#B6AA9B\]/g, '')
+          .trim() + (active ? ' bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : ' bg-[#F5F0E8]/50 text-[#0A0A0A] border-[#B6AA9B]');
+      });
+    }
+
+    function handleCustomFileSelect(input) {
+      const file = input.files && input.files[0];
+      const label = document.getElementById('custom-file-label');
+      const err = document.getElementById('custom-err-file');
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        err.textContent = 'Please select a valid image file (PNG, JPG, WEBP, SVG).';
+        return;
+      }
+      err.textContent = '';
+      state.customForm.uploadedFile = { name: file.name, sizeKB: Math.max(1, Math.round(file.size / 1024)) };
+      label.innerHTML = `<p class="text-sm font-medium text-[#0A0A0A]">${escapeHTML(file.name)}</p><p class="text-xs text-[#252321]/70">${state.customForm.uploadedFile.sizeKB} KB · Click to replace file</p>`;
+    }
+
+    function handleCustomSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value.trim();
+      const social = document.getElementById('cf-social').value.trim();
+      const qty = parseInt(document.getElementById('cf-qty').value, 10) || 1;
+      const desc = document.getElementById('cf-desc').value.trim();
+      const notes = document.getElementById('cf-notes').value.trim();
+
+      let valid = true;
+      document.getElementById('custom-err-name').textContent = name ? '' : ((valid = false), 'Please enter your name.');
+      document.getElementById('custom-err-social').textContent = social ? '' : ((valid = false), 'Please share your Instagram handle so we can confirm pricing.');
+      document.getElementById('custom-err-desc').textContent = desc.length >= 10 ? '' : ((valid = false), 'Please describe your design, quote, or concept (at least 10 characters).');
+      if (!valid) return;
+
+      state.customForm.submittedRequest = {
+        referenceId: 'ARX-CUST-' + Math.floor(100000 + Math.random() * 900000),
+        customerName: name,
+        socialHandle: social,
+        color: state.customForm.color,
+        size: state.customForm.size,
+        quantity: Math.min(50, Math.max(1, qty)),
+        placement: state.customForm.placement,
+        description: desc,
+        instructions: notes,
+        file: state.customForm.uploadedFile,
+      };
+      renderCurrentPage();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function copyCustomSummary() {
+      const r = state.customForm.submittedRequest;
+      if (!r) return;
+      const text = [
+        `AURIX™ Custom Tee Request (${r.referenceId})`,
+        `Name: ${r.customerName}`,
+        `Instagram / Social: ${r.socialHandle}`,
+        `Tee: Standard-Fit · ${r.color} · Size ${r.size} · Qty ${r.quantity}`,
+        `Print Placement: ${r.placement}`,
+        `Artwork File: ${r.file ? r.file.name : 'To be shared via DM'}`,
+        `Design Concept: ${r.description}`,
+        r.instructions ? `Notes: ${r.instructions}` : null,
+      ]
+        .filter(Boolean)
+        .join('\n');
+      copyTextToClipboard(text);
+    }
+
+    function renderCustomPrintsPage() {
+      const cf = state.customForm;
+      const req = cf.submittedRequest;
+
+      return `
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-12 md:py-20">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-14 border-b border-[#B6AA9B]/50 items-end">
+            <div class="lg:col-span-8 space-y-4">
+              <p class="text-[11px] font-heading tracking-[0.28em] uppercase text-[#252321]/65">AURIX™ CUSTOM STUDIO · STANDARD-FIT TEES</p>
+              <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold uppercase tracking-tight leading-[0.95]">YOUR IDEA.<br />YOUR TEE.<br />YOUR RULES.</h1>
+              <p class="text-base sm:text-lg text-[#252321]/85 max-w-xl leading-relaxed">Got a design in mind? A photo, graphic, quote or idea? Turn it into a T-shirt made your way.</p>
+            </div>
+            <div class="lg:col-span-4 bg-[#E7DCCD] p-6 border border-[#B6AA9B]/60 space-y-2">
+              <p class="text-[11px] font-heading font-bold tracking-[0.2em] uppercase text-[#0A0A0A]">Review Before Production</p>
+              <p class="text-xs sm:text-sm text-[#252321]/85 leading-relaxed">Custom designs are reviewed before production. Final pricing and order confirmation will be shared before printing.</p>
+            </div>
+          </div>
+
+          ${
+            req
+              ? `
+            <div class="max-w-3xl mx-auto my-12 bg-[#FFFFFF] border border-[#0A0A0A] p-7 sm:p-10 space-y-6">
+              <div class="flex items-start justify-between gap-4 border-b border-[#B6AA9B]/40 pb-5">
+                <div>
+                  <p class="text-[11px] font-heading tracking-[0.22em] uppercase text-[#252321]/70">REQUEST PREPARED · FRONTEND PREVIEW MODE</p>
+                  <h2 class="font-heading text-2xl sm:text-3xl font-bold uppercase mt-1">Reference #${req.referenceId}</h2>
+                </div>
+                <span class="text-xl font-bold">✓</span>
+              </div>
+              <div class="bg-[#E7DCCD]/60 p-4 border border-[#B6AA9B]/60 text-xs sm:text-sm text-[#252321] leading-relaxed">
+                <strong class="text-[#0A0A0A]">No backend server is connected yet.</strong> Your custom request has been validated locally and has not been automatically transmitted to a server. Copy your formatted summary below and DM it directly to <a href="${BRAND.instagramUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold text-[#0A0A0A]">${BRAND.instagramHandle}</a> on Instagram to start your review.
+              </div>
+              <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm pt-2">
+                <div><dt class="text-[11px] font-heading uppercase tracking-[0.16em] text-[#252321]/60">Customer</dt><dd class="font-medium mt-0.5">${escapeHTML(req.customerName)}</dd></div>
+                <div><dt class="text-[11px] font-heading uppercase tracking-[0.16em] text-[#252321]/60">Instagram / Social Contact</dt><dd class="font-medium mt-0.5">${escapeHTML(req.socialHandle)}</dd></div>
+                <div><dt class="text-[11px] font-heading uppercase tracking-[0.16em] text-[#252321]/60">Garment Specification</dt><dd class="font-medium mt-0.5">Standard-Fit · ${req.color} · Size ${req.size} · Qty ${req.quantity}</dd></div>
+                <div><dt class="text-[11px] font-heading uppercase tracking-[0.16em] text-[#252321]/60">Print Placement</dt><dd class="font-medium mt-0.5">${req.placement}</dd></div>
+                <div class="sm:col-span-2"><dt class="text-[11px] font-heading uppercase tracking-[0.16em] text-[#252321]/60">Uploaded Artwork</dt><dd class="font-medium mt-0.5">${req.file ? `${escapeHTML(req.file.name)} (${req.file.sizeKB} KB)` : 'No file attached — will share via DM'}</dd></div>
+                <div class="sm:col-span-2"><dt class="text-[11px] font-heading uppercase tracking-[0.16em] text-[#252321]/60">Design Concept</dt><dd class="mt-1 text-[#252321] leading-relaxed">${escapeHTML(req.description)}</dd></div>
+              </dl>
+              <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#B6AA9B]/40">
+                <button type="button" onclick="copyCustomSummary()" class="px-6 py-3.5 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#252321] transition-colors">Copy Summary for DM</button>
+                <a href="${BRAND.instagramUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 border border-[#0A0A0A] text-[#0A0A0A] text-xs font-heading font-semibold tracking-[0.2em] uppercase hover:bg-[#0A0A0A] hover:text-[#F5F0E8] transition-colors inline-flex items-center justify-center gap-2">${instagramIconSVG()} Open ${BRAND.instagramHandle}</a>
+                <button type="button" onclick="state.customForm.submittedRequest=null; renderCurrentPage()" class="px-5 py-3.5 text-xs font-heading uppercase tracking-[0.18em] text-[#252321] underline">Edit Request</button>
+              </div>
+            </div>
+          `
+              : `
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-12">
+              <form onsubmit="handleCustomSubmit(event)" novalidate class="lg:col-span-8 space-y-7 bg-[#FFFFFF] p-6 sm:p-10 border border-[#B6AA9B]/50">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-[11px] font-heading font-semibold tracking-[0.2em] uppercase mb-2">Your Name *</label>
+                    <input id="cf-name" type="text" placeholder="e.g. Aarav Mehta" class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                    <p id="custom-err-name" class="text-xs text-red-700 mt-1.5"></p>
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-heading font-semibold tracking-[0.2em] uppercase mb-2">Instagram Handle / Social Contact *</label>
+                    <input id="cf-social" type="text" placeholder="@yourhandle" class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                    <p id="custom-err-social" class="text-xs text-red-700 mt-1.5"></p>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-[11px] font-heading font-semibold tracking-[0.2em] uppercase mb-2">T-Shirt Color</label>
+                    <div class="grid grid-cols-2 gap-2">
+                      ${COLORS.map(
+                        (c) => `<button type="button" data-custom-color="${c}" onclick="setCustomOption('color', '${c}')" class="py-2.5 text-xs font-heading font-semibold uppercase tracking-wider border transition-colors ${
+                          cf.color === c ? 'bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : 'bg-[#F5F0E8]/50 text-[#0A0A0A] border-[#B6AA9B]'
+                        }">${c}</button>`
+                      ).join('')}
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex items-center justify-between mb-2">
+                      <label class="text-[11px] font-heading font-semibold tracking-[0.2em] uppercase">Size</label>
+                      <button type="button" onclick="openSizeGuide()" class="text-[11px] underline text-[#252321]">Size Guide</button>
+                    </div>
+                    <div class="grid grid-cols-4 gap-1.5">
+                      ${SIZES.map(
+                        (s) => `<button type="button" data-custom-size="${s}" onclick="setCustomOption('size', '${s}')" class="py-2.5 text-xs font-heading font-semibold border transition-colors ${
+                          cf.size === s ? 'bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : 'bg-[#F5F0E8]/50 text-[#0A0A0A] border-[#B6AA9B]'
+                        }">${s}</button>`
+                      ).join('')}
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-heading font-semibold tracking-[0.2em] uppercase mb-2">Quantity</label>
+                    <input id="cf-qty" type="number" min="1" max="50" value="1" class="w-full px-4 py-2.5 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-[11px] font-heading font-semibold tracking-[0.2em] uppercase mb-2">Print Placement</label>
+                  <div class="grid grid-cols-3 gap-3">
+                    ${['Front', 'Back', 'Front & Back']
+                      .map(
+                        (pl) => `<button type="button" data-custom-placement="${pl}" onclick="setCustomOption('placement', '${pl}')" class="py-3 text-xs font-heading font-semibold uppercase tracking-[0.14em] border transition-colors ${
+                          cf.placement === pl ? 'bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : 'bg-[#F5F0E8]/50 text-[#0A0A0A] border-[#B6AA9B]'
+                        }">${pl}</button>`
+                      )
+                      .join('')}
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-[11px] font-heading font-semibold tracking-[0.2em] uppercase mb-2">Design Description *</label>
+                  <textarea id="cf-desc" rows="4" placeholder="Tell us about your graphic, typography, quote, or concept—including approximate sizing and vibe..." class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]"></textarea>
+                  <p id="custom-err-desc" class="text-xs text-red-700 mt-1.5"></p>
+                </div>
+
+                <div>
+                  <label class="block text-[11px] font-heading font-semibold tracking-[0.2em] uppercase mb-2">Upload Artwork / Reference Image (Optional)</label>
+                  <div onclick="document.getElementById('cf-file').click()" class="border border-dashed border-[#B6AA9B] hover:border-[#0A0A0A] bg-[#F5F0E8]/50 p-6 text-center cursor-pointer transition-colors">
+                    <input id="cf-file" type="file" accept="image/*" onchange="handleCustomFileSelect(this)" class="hidden" />
+                    <div id="custom-file-label" class="space-y-1">
+                      <p class="text-xs sm:text-sm font-medium text-[#0A0A0A]">Click to select an image file</p>
+                      <p class="text-xs text-[#252321]/65">PNG, JPG, WEBP, or SVG recommended</p>
+                    </div>
+                  </div>
+                  <p id="custom-err-file" class="text-xs text-red-700 mt-1.5"></p>
+                </div>
+
+                <div>
+                  <label class="block text-[11px] font-heading font-semibold tracking-[0.2em] uppercase mb-2">Additional Instructions (Optional)</label>
+                  <input id="cf-notes" type="text" placeholder="Any specific placement notes or timeline context..." class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                </div>
+
+                <div class="pt-2 space-y-3">
+                  <button type="submit" class="w-full py-4 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-bold tracking-[0.22em] uppercase hover:bg-[#252321] transition-colors">Review &amp; Prepare Custom Request</button>
+                  <p class="text-[11px] text-[#252321]/70 text-center">Custom designs are reviewed before production. Final pricing and order confirmation will be shared before printing.</p>
+                </div>
+              </form>
+
+              <aside class="lg:col-span-4 space-y-6">
+                <div class="aspect-[4/5] overflow-hidden bg-[#E7DCCD] border border-[#B6AA9B]/40">
+                  ${imgTag('images/Urban Concrete Fashion Portrait(1).png', 'AURIX Standard-Fit White Tee Canvas', 'w-full h-full object-cover object-top', 'Custom Canvas')}
+                </div>
+                <div class="p-6 bg-[#E7DCCD]/60 border border-[#B6AA9B]/50 space-y-4">
+                  <h3 class="font-heading text-sm font-bold uppercase tracking-[0.18em]">Need Guidance Before Submitting?</h3>
+                  <p class="text-xs sm:text-sm text-[#252321]/85 leading-relaxed">Unsure about image resolution, print placement, or bulk custom pieces? Message us directly on Instagram and we'll help you prepare your artwork.</p>
+                  <a href="${BRAND.instagramUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-heading font-semibold uppercase tracking-[0.18em] text-[#0A0A0A] underline underline-offset-4">
+                    ${instagramIconSVG()} DM ${BRAND.instagramHandle}
+                  </a>
+                </div>
+              </aside>
+            </div>
+          `
+          }
+        </div>
+      `;
+    }
+
+    // --- PAGE 5: PRODUCT DETAILS ---
+    function setPDState(key, val) {
+      state.productDetail[key] = val;
+      if (key === 'color') state.productDetail.activeImageIdx = 0;
+      renderCurrentPage();
+    }
+
+    function handlePDAction(mode) {
+      const pd = state.productDetail;
+      if (!pd.size) {
+        const err = document.getElementById('pd-size-error');
+        if (err) err.textContent = 'Please select a size before adding to cart.';
+        showToast('Please select a size first');
+        return;
+      }
+      if (mode === 'buy') {
+        addToCart(pd.productId, pd.color, pd.size, pd.quantity, false);
+        navigateTo('checkout');
+      } else {
+        addToCart(pd.productId, pd.color, pd.size, pd.quantity, true);
+      }
+    }
+
+    function renderProductDetailPage() {
+      const pd = state.productDetail;
+      const product = PRODUCTS.find((p) => p.id === pd.productId) || PRODUCTS[0];
+      const primary = product.imagesByColor[pd.color] || [];
+      const otherColor = pd.color === 'Black' ? 'White' : 'Black';
+      const gallery = [...primary, ...(product.imagesByColor[otherColor] || [])];
+      const activeSrc = gallery[pd.activeImageIdx] || gallery[0];
+      const related = PRODUCTS.filter((p) => p.id !== product.id).slice(0, 4);
+
+      return `
+        <div class="pb-24 md:pb-16">
+          <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-8 md:py-14">
+            <nav class="flex items-center gap-2 text-[11px] font-heading uppercase tracking-[0.18em] text-[#252321]/65 mb-8">
+              <button type="button" onclick="navigateTo('home')" class="hover:text-[#0A0A0A]">Home</button>
+              <span>/</span>
+              <button type="button" onclick="navigateTo('shop', { category: '${product.category}' })" class="hover:text-[#0A0A0A]">${product.category}</button>
+              <span>/</span>
+              <span class="text-[#0A0A0A] truncate">${escapeHTML(product.name)}</span>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+              <!-- Gallery -->
+              <div class="lg:col-span-7 space-y-4">
+                <div class="aspect-[3/4] w-full bg-[#E7DCCD] overflow-hidden border border-[#B6AA9B]/40">
+                  ${imgTag(activeSrc, product.name, 'w-full h-full object-cover object-top', product.name)}
+                </div>
+                <div class="grid grid-cols-4 gap-3">
+                  ${gallery
+                    .map(
+                      (src, idx) => `
+                    <button type="button" onclick="setPDState('activeImageIdx', ${idx})" class="aspect-[3/4] overflow-hidden bg-[#E7DCCD] border transition-all ${
+                      pd.activeImageIdx === idx ? 'border-[#0A0A0A] ring-1 ring-[#0A0A0A]' : 'border-[#B6AA9B]/40 opacity-75 hover:opacity-100'
+                    }">
+                      ${imgTag(src, `${product.name} view ${idx + 1}`, 'w-full h-full object-cover object-top', product.name)}
+                    </button>
+                  `
+                    )
+                    .join('')}
+                </div>
+              </div>
+
+              <!-- Info -->
+              <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-7">
+                <div class="space-y-2 pb-6 border-b border-[#B6AA9B]/40">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="text-[11px] font-heading tracking-[0.22em] uppercase text-[#252321]/70">${product.category} · ${product.fit}</span>
+                    <span class="text-[11px] font-heading uppercase tracking-[0.16em] text-[#252321]/65">SKU: ${product.sku}</span>
+                  </div>
+                  <h1 class="font-heading text-3xl sm:text-4xl font-bold uppercase tracking-tight">${escapeHTML(product.name)}</h1>
+                  <div class="flex items-baseline justify-between pt-1">
+                    <p class="font-heading text-2xl font-bold text-[#0A0A0A]">${formatINR(product.price)}</p>
+                    <span class="text-xs font-medium text-[#252321]/80">${product.available ? 'In Stock' : 'Unavailable'}</span>
+                  </div>
+                  <p class="text-[11px] text-[#252321]/65">Inclusive of applicable taxes. Shipping calculated at checkout.</p>
+                </div>
+
+                <div class="space-y-3 text-sm text-[#252321]/85 leading-relaxed">
+                  <p>${escapeHTML(product.description)}</p>
+                  <div class="bg-[#E7DCCD]/60 p-4 border-l-2 border-[#0A0A0A]">
+                    <p class="text-[10px] font-heading font-bold tracking-[0.2em] uppercase text-[#0A0A0A] mb-1">Design Story</p>
+                    <p class="text-xs sm:text-sm text-[#252321]/90">${escapeHTML(product.designStory)}</p>
+                  </div>
+                </div>
+
+                <div class="space-y-2.5">
+                  <p class="text-[11px] font-heading font-semibold tracking-[0.2em] uppercase">Color: <span class="text-[#252321]/75">${pd.color}</span></p>
+                  <div class="flex items-center gap-3">
+                    ${product.colors
+                      .map(
+                        (c) => `
+                      <button type="button" onclick="setPDState('color', '${c}')" class="px-4 py-2 text-xs font-heading font-semibold uppercase tracking-wider border flex items-center gap-2 transition-colors ${
+                        pd.color === c ? 'bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : 'bg-[#FFFFFF] text-[#0A0A0A] border-[#B6AA9B] hover:border-[#0A0A0A]'
+                      }">
+                        <span class="w-3 h-3 rounded-full border ${c === 'Black' ? 'bg-[#0A0A0A] border-white/40' : 'bg-[#FFFFFF] border-[#B6AA9B]'}"></span>${c}
+                      </button>
+                    `
+                      )
+                      .join('')}
+                  </div>
+                </div>
+
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <p class="text-[11px] font-heading font-semibold tracking-[0.2em] uppercase">Select Size (Standard Fit) *</p>
+                    <button type="button" onclick="openSizeGuide()" class="text-xs underline text-[#252321] hover:text-[#0A0A0A]">Size Guide</button>
+                  </div>
+                  <div class="grid grid-cols-4 gap-2.5">
+                    ${product.sizes
+                      .map(
+                        (sz) => `
+                      <button type="button" onclick="setPDState('size', '${sz}')" class="py-3 text-xs font-heading font-bold border transition-colors ${
+                        pd.size === sz ? 'bg-[#0A0A0A] text-[#F5F0E8] border-[#0A0A0A]' : 'bg-[#FFFFFF] text-[#0A0A0A] border-[#B6AA9B] hover:border-[#0A0A0A]'
+                      }">${sz}</button>
+                    `
+                      )
+                      .join('')}
+                  </div>
+                  <p id="pd-size-error" class="text-xs text-red-700"></p>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                  <div class="flex items-center gap-3">
+                    <div class="inline-flex items-center border border-[#B6AA9B] bg-[#FFFFFF]">
+                      <button type="button" onclick="setPDState('quantity', Math.max(1, state.productDetail.quantity - 1))" class="px-3.5 py-3.5 hover:bg-[#E7DCCD]">−</button>
+                      <span class="px-4 text-sm font-heading font-semibold">${pd.quantity}</span>
+                      <button type="button" onclick="setPDState('quantity', Math.min(10, state.productDetail.quantity + 1))" class="px-3.5 py-3.5 hover:bg-[#E7DCCD]">+</button>
+                    </div>
+                    <button type="button" onclick="handlePDAction('cart')" class="flex-1 py-4 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-bold tracking-[0.22em] uppercase hover:bg-[#252321] transition-colors">Add to Cart</button>
+                  </div>
+                  <button type="button" onclick="handlePDAction('buy')" class="w-full py-4 border border-[#0A0A0A] text-[#0A0A0A] text-xs font-heading font-bold tracking-[0.22em] uppercase hover:bg-[#0A0A0A] hover:text-[#F5F0E8] transition-colors">Buy Now</button>
+                </div>
+
+                <div class="pt-4 border-t border-[#B6AA9B]/50 divide-y divide-[#B6AA9B]/40">
+                  ${[
+                    ['fabric', 'Fabric & Fit', 'Clean standard-fit silhouette designed for everyday wearability. Comfortable, breathable fabric selected for structure and softness. [Exact fabric composition and GSM specifications will be published once final production batches are verified.]'],
+                    ['care', 'Wash & Care', 'Machine wash cold inside-out with like colors. Use mild detergent. Do not bleach. Line dry in shade. Do not iron directly over the printed graphic.'],
+                    ['shipping', 'Shipping & Returns', '[Editable Placeholder — Pan-India shipping estimates and return/exchange windows will be confirmed prior to launch.] Need order help? DM us on Instagram at @aurix.officialss.'],
+                  ]
+                    .map(([id, title, content]) => {
+                      const open = pd.openAccordion === id;
+                      return `
+                        <div class="py-4">
+                          <button type="button" onclick="setPDState('openAccordion', '${open ? '' : id}')" class="w-full flex items-center justify-between text-left font-heading text-xs font-bold uppercase tracking-[0.18em]">
+                            <span>${title}</span><span>${open ? '−' : '+'}</span>
+                          </button>
+                          ${open ? `<p class="pt-3 text-xs sm:text-sm text-[#252321]/80 leading-relaxed">${content}</p>` : ''}
+                        </div>
+                      `;
+                    })
+                    .join('')}
+                </div>
+              </div>
+            </div>
+
+            <section class="mt-24 pt-14 border-t border-[#B6AA9B]/40">
+              <h2 class="font-heading text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-8">MORE FROM AURIX™</h2>
+              <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-6">
+                ${related.map((p) => renderProductCard(p, 'rel')).join('')}
+              </div>
+            </section>
+          </div>
+
+          <div class="fixed bottom-0 inset-x-0 z-30 lg:hidden bg-[#F5F0E8]/95 backdrop-blur-md border-t border-[#B6AA9B]/60 px-4 py-3 flex items-center justify-between gap-4">
+            <div class="min-w-0">
+              <p class="font-heading text-xs font-bold uppercase truncate">${escapeHTML(product.name)}</p>
+              <p class="text-xs text-[#252321]/80">${formatINR(product.price)} · ${pd.size ? `Size ${pd.size}` : 'Pick size'}</p>
+            </div>
+            <button type="button" onclick="handlePDAction('cart')" class="px-6 py-3 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-bold tracking-[0.18em] uppercase shrink-0">Add to Cart</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- PAGE 6: ABOUT ---
+    function renderAboutPage() {
+      return `
+        <div>
+          <section class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-16 md:py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div class="lg:col-span-7 space-y-6">
+                <p class="text-[11px] font-heading tracking-[0.28em] uppercase text-[#252321]/65">OUR STORY · AURIX™</p>
+                <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold uppercase tracking-tight leading-[0.95]">WE WERE NEVER MADE TO BLEND IN.</h1>
+                <p class="font-heading text-base sm:text-lg text-[#252321]/80">${BRAND.positioning}</p>
+              </div>
+              <div class="lg:col-span-5">
+                <div class="aspect-[4/5] bg-[#E7DCCD] overflow-hidden border border-[#B6AA9B]/40">
+                  ${imgTag('images/AURIX in Sunlit Concrete.png', 'AURIX Editorial Story', 'w-full h-full object-cover object-top', 'AURIX')}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="bg-[#0A0A0A] text-[#F5F0E8] py-20 md:py-28">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
+              <img src="${LOGOS.emblemLight}" alt="AURIX Emblem" class="h-10 w-10 object-contain" onerror="this.style.display='none'" />
+              <div class="space-y-6 text-lg sm:text-2xl font-heading font-normal leading-relaxed text-[#E7DCCD]">
+                <p>AURIX was built around one idea — individuality deserves to be seen.</p>
+                <p>We believe what you wear can be more than fabric. It can carry your thoughts, your creativity, your mood, your identity.</p>
+                <p>From original designs to custom prints, AURIX gives you a way to wear what defines you.</p>
+                <p class="text-[#F5F0E8] font-semibold">No unnecessary noise. No rules to fit into.<br />Just you, expressed differently.</p>
+              </div>
+              <p class="pt-4 text-xs font-heading tracking-[0.28em] uppercase text-[#B6AA9B]">AURIX™ — BUILT TO BE DIFFERENT.</p>
+            </div>
+          </section>
+
+          <section class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+              ${['images/No Context-f1.png', 'images/Offline-m2.png', 'images/Unfiltered-f2.png']
+                .map((src, i) => `<div class="aspect-[3/4] bg-[#E7DCCD] overflow-hidden border border-[#B6AA9B]/40">${imgTag(src, `Campaign Frame ${i + 1}`, 'w-full h-full object-cover object-top', 'AURIX')}</div>`)
+                .join('')}
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button type="button" onclick="navigateTo('originals')" class="w-full sm:w-auto px-8 py-4 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-bold tracking-[0.22em] uppercase hover:bg-[#252321] transition-colors">Explore Originals</button>
+              <button type="button" onclick="navigateTo('custom')" class="w-full sm:w-auto px-8 py-4 border border-[#0A0A0A] text-[#0A0A0A] text-xs font-heading font-bold tracking-[0.22em] uppercase hover:bg-[#0A0A0A] hover:text-[#F5F0E8] transition-colors">Create Your Custom Tee</button>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    // --- PAGE 7: CART ---
+    function renderCartPage() {
+      const { subtotal, shipping, total } = getCartTotals();
+      if (state.cart.length === 0) {
+        return `
+          <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-12 md:py-16">
+            <div class="pb-8 border-b border-[#B6AA9B]/50">
+              <p class="text-[11px] font-heading tracking-[0.24em] uppercase text-[#252321]/65">SHOPPING BAG</p>
+              <h1 class="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight mt-1">YOUR CART</h1>
+            </div>
+            <div class="py-24 text-center space-y-5">
+              <p class="font-heading text-xl font-semibold uppercase">Your cart is currently empty.</p>
+              <button type="button" onclick="navigateTo('shop', { category: 'All' })" class="px-8 py-4 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-bold tracking-[0.22em] uppercase">Shop The Collection</button>
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-12 md:py-16">
+          <div class="pb-8 border-b border-[#B6AA9B]/50">
+            <p class="text-[11px] font-heading tracking-[0.24em] uppercase text-[#252321]/65">SHOPPING BAG</p>
+            <h1 class="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight mt-1">YOUR CART</h1>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-10">
+            <div class="lg:col-span-8 divide-y divide-[#B6AA9B]/40">
+              ${state.cart
+                .map(
+                  (item) => `
+                <div class="py-6 first:pt-0 flex gap-5">
+                  <button type="button" onclick="openProduct('${item.productId}', '${item.color}')" class="w-24 h-32 bg-[#E7DCCD] shrink-0 overflow-hidden border border-[#B6AA9B]/40">
+                    ${imgTag(item.image, item.name, 'w-full h-full object-cover object-top', item.name)}
+                  </button>
+                  <div class="flex-1 flex flex-col justify-between">
+                    <div class="flex items-start justify-between gap-4">
+                      <div>
+                        <p class="text-[10px] font-heading uppercase tracking-[0.18em] text-[#252321]/65">${item.category}</p>
+                        <h3 class="font-heading text-base font-bold text-[#0A0A0A]">${escapeHTML(item.name)}</h3>
+                        <p class="text-xs text-[#252321]/75 mt-1">Color: ${item.color} · Size: ${item.size} (Standard Fit)</p>
+                      </div>
+                      <p class="font-heading text-base font-bold">${formatINR(item.price * item.quantity)}</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4">
+                      <div class="inline-flex items-center border border-[#B6AA9B] bg-[#FFFFFF]">
+                        <button type="button" onclick="updateCartQty('${item.key}', -1)" class="px-3 py-2 hover:bg-[#E7DCCD]">−</button>
+                        <span class="px-4 text-xs font-heading font-semibold">${item.quantity}</span>
+                        <button type="button" onclick="updateCartQty('${item.key}', 1)" class="px-3 py-2 hover:bg-[#E7DCCD]">+</button>
+                      </div>
+                      <button type="button" onclick="removeFromCart('${item.key}')" class="text-xs text-[#252321]/70 hover:text-[#0A0A0A] underline">Remove</button>
+                    </div>
+                  </div>
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+
+            <aside class="lg:col-span-4">
+              <div class="bg-[#E7DCCD]/70 border border-[#B6AA9B]/60 p-7 space-y-5">
+                <h2 class="font-heading text-sm font-bold uppercase tracking-[0.2em]">Order Summary</h2>
+                <div class="space-y-3 text-sm border-b border-[#B6AA9B]/50 pb-5">
+                  <div class="flex justify-between"><span class="text-[#252321]/80">Subtotal</span><span class="font-heading font-semibold">${formatINR(subtotal)}</span></div>
+                  <div class="flex justify-between"><span class="text-[#252321]/80">Delivery Fee</span><span class="font-heading font-semibold">${shipping === 0 ? 'Complimentary' : formatINR(shipping)}</span></div>
+                </div>
+                <div class="flex justify-between items-baseline">
+                  <span class="font-heading text-sm font-bold uppercase tracking-wider">Total</span>
+                  <span class="font-heading text-xl font-bold">${formatINR(total)}</span>
+                </div>
+                <button type="button" onclick="navigateTo('checkout')" class="w-full py-4 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-bold tracking-[0.22em] uppercase hover:bg-[#252321] transition-colors">Proceed to Checkout</button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- PAGE 8: CHECKOUT ---
+    function handleCheckoutSubmit(e) {
+      e.preventDefault();
+      const form = {
+        name: document.getElementById('co-name').value.trim(),
+        phone: document.getElementById('co-phone').value.trim(),
+        email: document.getElementById('co-email').value.trim(),
+        address: document.getElementById('co-address').value.trim(),
+        city: document.getElementById('co-city').value.trim(),
+        state: document.getElementById('co-state').value.trim(),
+        pin: document.getElementById('co-pin').value.trim(),
+      };
+
+      let ok = true;
+      const setErr = (id, msg) => {
+        document.getElementById(id).textContent = msg;
+        if (msg) ok = false;
+      };
+
+      setErr('co-err-name', form.name ? '' : 'Full name is required.');
+      setErr('co-err-phone', /^[0-9+\-\s]{10,14}$/.test(form.phone) ? '' : 'Enter a valid 10-digit Indian phone number.');
+      setErr('co-err-email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) ? '' : 'Enter a valid email address.');
+      setErr('co-err-address', form.address ? '' : 'Delivery address is required.');
+      setErr('co-err-city', form.city ? '' : 'City is required.');
+      setErr('co-err-state', form.state ? '' : 'State is required.');
+      setErr('co-err-pin', /^\d{6}$/.test(form.pin) ? '' : 'Enter a valid 6-digit PIN code.');
+      if (!ok) return;
+
+      const { subtotal, shipping, total } = getCartTotals();
+      state.lastOrder = {
+        orderId: 'ARX-DEMO-' + Math.floor(100000 + Math.random() * 900000),
+        customer: form,
+        items: [...state.cart],
+        subtotal,
+        deliveryFee: shipping,
+        total,
+        placedAt: new Date().toLocaleString('en-IN'),
+      };
+      state.cart = [];
+      saveCart();
+      navigateTo('confirmation');
+    }
+
+    function renderCheckoutPage() {
+      const { count, subtotal, shipping, total } = getCartTotals();
+      if (state.cart.length === 0) {
+        return `
+          <div class="max-w-2xl mx-auto px-4 py-24 text-center space-y-5">
+            <h1 class="font-heading text-3xl font-bold uppercase">Your cart is empty</h1>
+            <p class="text-sm text-[#252321]/75">Add an AURIX standard-fit T-shirt before proceeding to checkout.</p>
+            <button type="button" onclick="navigateTo('shop', { category: 'All' })" class="px-7 py-3.5 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-bold tracking-[0.2em] uppercase">Back to Shop</button>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-12 md:py-16">
+          <div class="pb-8 border-b border-[#B6AA9B]/50">
+            <p class="text-[11px] font-heading tracking-[0.24em] uppercase text-[#252321]/65">SECURE INDIAN CHECKOUT · INR (₹)</p>
+            <h1 class="font-heading text-3xl sm:text-5xl font-bold uppercase tracking-tight mt-1">CHECKOUT</h1>
+          </div>
+
+          <form onsubmit="handleCheckoutSubmit(event)" novalidate class="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-10">
+            <div class="lg:col-span-7 space-y-8">
+              <div class="bg-[#FFFFFF] p-6 sm:p-8 border border-[#B6AA9B]/50 space-y-5">
+                <h2 class="font-heading text-sm font-bold uppercase tracking-[0.2em]">01. Delivery Details</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div class="sm:col-span-2">
+                    <label class="block text-[11px] font-heading font-semibold uppercase tracking-[0.16em] mb-1.5">Full Name *</label>
+                    <input id="co-name" type="text" class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                    <p id="co-err-name" class="text-xs text-red-700 mt-1"></p>
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-heading font-semibold uppercase tracking-[0.16em] mb-1.5">Phone Number *</label>
+                    <input id="co-phone" type="tel" placeholder="10-digit mobile" class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                    <p id="co-err-phone" class="text-xs text-red-700 mt-1"></p>
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-heading font-semibold uppercase tracking-[0.16em] mb-1.5">Email Address *</label>
+                    <input id="co-email" type="email" placeholder="you@example.com" class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                    <p id="co-err-email" class="text-xs text-red-700 mt-1"></p>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="block text-[11px] font-heading font-semibold uppercase tracking-[0.16em] mb-1.5">Street Address / Apartment *</label>
+                    <input id="co-address" type="text" class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                    <p id="co-err-address" class="text-xs text-red-700 mt-1"></p>
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-heading font-semibold uppercase tracking-[0.16em] mb-1.5">City *</label>
+                    <input id="co-city" type="text" class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                    <p id="co-err-city" class="text-xs text-red-700 mt-1"></p>
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-heading font-semibold uppercase tracking-[0.16em] mb-1.5">State *</label>
+                    <input id="co-state" type="text" class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                    <p id="co-err-state" class="text-xs text-red-700 mt-1"></p>
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-heading font-semibold uppercase tracking-[0.16em] mb-1.5">PIN Code *</label>
+                    <input id="co-pin" type="text" maxlength="6" placeholder="6-digit PIN" class="w-full px-4 py-3 bg-[#F5F0E8]/60 border border-[#B6AA9B] text-sm focus:outline-none focus:border-[#0A0A0A]" />
+                    <p id="co-err-pin" class="text-xs text-red-700 mt-1"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-[#E7DCCD]/65 p-6 sm:p-8 border border-[#B6AA9B] space-y-3">
+                <h2 class="font-heading text-sm font-bold uppercase tracking-[0.2em]">02. Payment Gateway (Razorpay Ready)</h2>
+                <p class="text-xs sm:text-sm text-[#252321]/85 leading-relaxed">
+                  <strong class="text-[#0A0A0A]">Demo / Integration Placeholder:</strong> Live payment processing (UPI, Cards, Netbanking via Razorpay) is not active in this preview. No payment details are collected and no charge will be made.
+                </p>
+              </div>
+            </div>
+
+            <aside class="lg:col-span-5">
+              <div class="bg-[#FFFFFF] border border-[#B6AA9B]/60 p-6 sm:p-8 space-y-6 lg:sticky lg:top-28">
+                <h2 class="font-heading text-sm font-bold uppercase tracking-[0.2em]">Order Summary (${count} items)</h2>
+                <div class="space-y-4 max-h-72 overflow-y-auto pr-1">
+                  ${state.cart
+                    .map(
+                      (item) => `
+                    <div class="flex items-center gap-3.5 text-sm">
+                      <div class="w-14 h-18 bg-[#E7DCCD] shrink-0 overflow-hidden">${imgTag(item.image, item.name, 'w-full h-full object-cover object-top', item.name)}</div>
+                      <div class="flex-1 min-w-0">
+                        <p class="font-heading font-semibold text-xs sm:text-sm truncate">${escapeHTML(item.name)}</p>
+                        <p class="text-xs text-[#252321]/70">${item.color} · ${item.size} · Qty ${item.quantity}</p>
+                      </div>
+                      <span class="font-heading text-sm font-semibold">${formatINR(item.price * item.quantity)}</span>
+                    </div>
+                  `
+                    )
+                    .join('')}
+                </div>
+                <div class="space-y-2.5 pt-4 border-t border-[#B6AA9B]/40 text-sm">
+                  <div class="flex justify-between"><span class="text-[#252321]/75">Subtotal</span><span>${formatINR(subtotal)}</span></div>
+                  <div class="flex justify-between"><span class="text-[#252321]/75">Delivery Fee</span><span>${shipping === 0 ? 'Complimentary' : formatINR(shipping)}</span></div>
+                  <div class="flex justify-between pt-3 border-t border-[#B6AA9B]/40 font-heading text-lg font-bold"><span>Final Amount</span><span>${formatINR(total)}</span></div>
+                </div>
+                <button type="submit" class="w-full py-4 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-bold tracking-[0.22em] uppercase hover:bg-[#252321] transition-colors">Place Demo Order</button>
+              </div>
+            </aside>
+          </form>
+        </div>
+      `;
+    }
+
+    // --- PAGE 9: ORDER CONFIRMATION ---
+    function renderOrderConfirmationPage() {
+      const o = state.lastOrder;
+      if (!o) {
+        return `
+          <div class="max-w-2xl mx-auto px-4 py-24 text-center space-y-4">
+            <h1 class="font-heading text-3xl font-bold uppercase">No Active Order Reference</h1>
+            <button type="button" onclick="navigateTo('home')" class="px-7 py-3.5 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-bold tracking-[0.2em] uppercase">Return Home</button>
+          </div>
+        `;
+      }
+      return `
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+          <div class="bg-[#FFFFFF] border border-[#0A0A0A] p-8 sm:p-12 space-y-8">
+            <div class="space-y-3 border-b border-[#B6AA9B]/50 pb-6">
+              <p class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/70">DEMO ORDER PREVIEW · NO PAYMENT CHARGED</p>
+              <h1 class="font-heading text-3xl sm:text-4xl font-bold uppercase tracking-tight">ORDER REFERENCE CREATED</h1>
+              <p class="text-sm text-[#252321]/80">Reference ID: <strong class="text-[#0A0A0A]">${o.orderId}</strong> · ${o.placedAt}</p>
+            </div>
+            <div class="bg-[#E7DCCD]/60 p-4 border border-[#B6AA9B]/60 text-xs sm:text-sm text-[#252321]">
+              This storefront is currently running in frontend preview mode with Razorpay ready for integration. No live transaction was processed.
+            </div>
+            <div class="space-y-2 text-sm">
+              <h2 class="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#252321]/70">Delivering To</h2>
+              <p>${escapeHTML(o.customer.name)} · ${escapeHTML(o.customer.phone)}<br />${escapeHTML(o.customer.address)}, ${escapeHTML(o.customer.city)}, ${escapeHTML(o.customer.state)} — ${escapeHTML(o.customer.pin)}</p>
+            </div>
+            <div class="space-y-3 border-t border-[#B6AA9B]/40 pt-6">
+              ${o.items.map((item) => `<div class="flex justify-between text-sm"><span>${escapeHTML(item.name)} (${item.color}, ${item.size}) × ${item.quantity}</span><span class="font-heading font-semibold">${formatINR(item.price * item.quantity)}</span></div>`).join('')}
+              <div class="flex justify-between pt-3 border-t border-[#B6AA9B]/40 font-heading text-base font-bold"><span>Total</span><span>${formatINR(o.total)}</span></div>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#B6AA9B]/50">
+              <a href="${BRAND.instagramUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-heading font-semibold uppercase tracking-[0.18em] underline">${instagramIconSVG()} Need help? DM ${BRAND.instagramHandle}</a>
+              <button type="button" onclick="navigateTo('home')" class="px-7 py-3.5 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-bold tracking-[0.2em] uppercase">Continue Exploring</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- PAGE 10: FAQS ---
+    function toggleFaq(idx) {
+      state.openFaqIdx = state.openFaqIdx === idx ? -1 : idx;
+      renderCurrentPage();
+    }
+
+    function renderFAQPage() {
+      return `
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+          <div class="space-y-3 pb-10 border-b border-[#B6AA9B]/50">
+            <p class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/65">HELP &amp; INFORMATION</p>
+            <h1 class="font-heading text-4xl sm:text-5xl font-bold uppercase tracking-tight">FREQUENTLY ASKED QUESTIONS</h1>
+            <p class="text-sm text-[#252321]/80">Everything you need to know about AURIX Originals and Custom Prints.</p>
+          </div>
+          <div class="divide-y divide-[#B6AA9B]/50">
+            ${FAQ_ITEMS.map(
+              (item, idx) => `
+              <div class="py-5">
+                <button type="button" onclick="toggleFaq(${idx})" class="w-full flex items-center justify-between gap-4 text-left">
+                  <span class="font-heading text-base sm:text-lg font-semibold text-[#0A0A0A]">${item.q}</span>
+                  <span class="text-lg shrink-0">${state.openFaqIdx === idx ? '−' : '+'}</span>
+                </button>
+                ${state.openFaqIdx === idx ? `<p class="pt-3.5 text-sm text-[#252321]/85 leading-relaxed max-w-3xl">${item.a}</p>` : ''}
+              </div>
+            `
+            ).join('')}
+          </div>
+          <div class="mt-14 p-8 bg-[#E7DCCD] border border-[#B6AA9B]/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div class="space-y-1">
+              <h2 class="font-heading text-lg font-bold uppercase">Still have a question?</h2>
+              <p class="text-sm text-[#252321]/80">DM us directly on Instagram — our only customer support channel.</p>
+            </div>
+            <a href="${BRAND.instagramUrl}" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 bg-[#0A0A0A] text-[#F5F0E8] text-xs font-heading font-semibold tracking-[0.2em] uppercase inline-flex items-center gap-2 shrink-0">${instagramIconSVG()} DM ${BRAND.instagramHandle}</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- PAGES 11–13: POLICIES ---
+    function renderPolicyPage(type) {
+      const docs = {
+        shipping: {
+          eyebrow: 'POLICIES',
+          title: 'SHIPPING & RETURNS',
+          sections: [
+            ['1. Dispatch & Delivery', '[Editable Placeholder — Final pan-India shipping timelines, courier partners, and dispatch windows will be confirmed prior to official launch.] Orders placed for AURIX Originals and Custom Printed T-shirts are prepared carefully before dispatch.'],
+            ['2. Returns & Exchanges (AURIX Originals)', '[Editable Placeholder — Return and size-exchange eligibility window and conditions to be finalized before launch.] Unworn, unwashed standard-fit T-shirts with original tags intact will be covered under our published exchange policy.'],
+            ['3. Custom Printed T-Shirts', 'Because custom printed T-shirts are produced individually based on your submitted artwork and specifications, custom orders are reviewed and confirmed with you before printing and are generally non-returnable unless a verified defect or transit damage occurs.'],
+            ['4. Order Assistance', 'For any shipping or return queries, message us directly on Instagram at @aurix.officialss.'],
+          ],
+        },
+        privacy: {
+          eyebrow: 'LEGAL',
+          title: 'PRIVACY POLICY',
+          sections: [
+            ['1. Information You Provide', 'When you browse AURIX™, place an order, or submit a custom print request, we collect only the details necessary to fulfill your request (such as name, delivery address, contact details, and submitted design files).'],
+            ['2. Payment Security', 'AURIX™ does not store sensitive credit card, debit card, or UPI credentials on our servers. When live payments are activated, transactions will be handled securely through an authorized Indian payment gateway (such as Razorpay).'],
+            ['3. Local Storage', 'This website uses browser local storage solely to preserve your shopping cart items across page refreshes.'],
+            ['4. Contact', 'For privacy-related questions, reach out via Instagram DM at @aurix.officialss.'],
+          ],
+        },
+        terms: {
+          eyebrow: 'LEGAL',
+          title: 'TERMS & CONDITIONS',
+          sections: [
+            ['1. Overview', 'Welcome to AURIX™. By accessing or using this storefront, you agree to the terms outlined below. [Editable Placeholder — Complete legal entity details to be inserted prior to commercial launch.]'],
+            ['2. Product Catalog', 'At launch, AURIX™ offers standard-fit T-shirts across AURIX Original Designs and Custom Printed T-Shirts in limited colors (Black and White) and sizes (S, M, L, XL). All prices are listed in Indian Rupees (₹ INR).'],
+            ['3. Custom Artwork Responsibility', 'Customers submitting artwork for Custom Prints confirm that they hold the rights or permission to print the submitted graphics, photos, or text. AURIX™ reserves the right to review and decline designs prior to production.'],
+            ['4. Intellectual Property', 'All AURIX™ trademarks, orbital A emblems, original graphic designs, and editorial photography are the intellectual property of AURIX™ and may not be reproduced without written permission.'],
+          ],
+        },
+      };
+      const doc = docs[type] || docs.shipping;
+      return `
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16 md:py-24 space-y-10">
+          <div class="space-y-2 pb-8 border-b border-[#B6AA9B]/50">
+            <p class="text-[11px] font-heading tracking-[0.26em] uppercase text-[#252321]/65">${doc.eyebrow}</p>
+            <h1 class="font-heading text-4xl sm:text-5xl font-bold uppercase tracking-tight">${doc.title}</h1>
+          </div>
+          <div class="space-y-8">
+            ${doc.sections.map(([h, b]) => `<div class="space-y-2"><h2 class="font-heading text-lg font-bold uppercase tracking-wide text-[#0A0A0A]">${h}</h2><p class="text-sm sm:text-base text-[#252321]/85 leading-relaxed">${b}</p></div>`).join('')}
+          </div>
+          <div class="pt-8 border-t border-[#B6AA9B]/40">
+            <a href="${BRAND.instagramUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-heading font-semibold uppercase tracking-[0.2em] underline">${instagramIconSVG()} DM ${BRAND.instagramHandle} on Instagram</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // ========================================================================
+    // 7. INITIALIZE STOREFRONT
+    // ========================================================================
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        const nextScrolled = window.scrollY > 36;
+        if (nextScrolled !== state.isScrolled) {
+          state.isScrolled = nextScrolled;
+          updateHeaderAppearance();
+        }
+      },
+      { passive: true }
+    );
+
+    renderCurrentPage();
+    updateHeaderAppearance();
+    updateHeaderAndCartUI();
+  </script>
+</body>
+</html>
